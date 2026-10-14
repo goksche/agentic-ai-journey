@@ -20,21 +20,22 @@ Lies zuerst das Skript `docs/skripte/1.1-was-ist-ein-agent.md`.
 
 Schritte:
 
-1. `uv` installieren (Befehl im Skript, Abschnitt 8) und prüfen: `uv --version`.
-2. Im Repo-Wurzelverzeichnis das Python-Projekt anlegen:
+1. Cursor installieren (cursor.com), das Repo öffnen und die Erweiterungen «Python» und «Jupyter» installieren. Prüfen, ob die Regel `.cursor/rules/lernmodus.mdc` unter *Settings → Rules* erscheint.
+2. `uv` installieren (Befehl im Skript, Abschnitt 8) und prüfen: `uv --version`.
+3. Im Repo-Wurzelverzeichnis das Python-Projekt anlegen:
    ```bash
    uv init --python 3.12 --no-readme
    uv add anthropic openai python-dotenv
    ```
    `uv init` legt eine `main.py` an, die du löschen kannst.
-3. Konten bei der Anthropic Console und der OpenAI Platform anlegen, Guthaben laden, **monatliches Ausgabelimit setzen**, je einen API-Key erzeugen.
-4. `cp .env.example .env` und die Keys eintragen.
-5. Prüfskript ausführen:
+4. Konten bei der Anthropic Console und der OpenAI Platform anlegen, Guthaben laden, **monatliches Ausgabelimit setzen**, je einen API-Key erzeugen.
+5. `cp .env.example .env` und die Keys eintragen.
+6. Prüfskript ausführen:
    ```bash
    uv run module-1.1-induction/check_setup.py
    ```
    Das Skript listet die verfügbaren Modelle beider Anbieter. Das kostet keine Token. Wähle aus der Liste je ein kleines, günstiges Modell, trage es als `ANTHROPIC_MODEL` und `OPENAI_MODEL` in `.env` ein und führe das Skript erneut aus. Jetzt macht es pro Anbieter einen Mini-Aufruf (Kosten: Bruchteile eines Rappens).
-6. Optional: Ollama installieren, ein kleines Modell laden (`ollama pull <modell>`) und `ollama run <modell> "Hallo"` testen.
+7. Optional: Ollama installieren, ein kleines Modell laden (`ollama pull <modell>`) und `ollama run <modell> "Hallo"` testen.
 
 **Abnahme:**
 
@@ -61,7 +62,7 @@ Schritte:
 
 **Ziel:** Du kannst Systeme sicher auf der Agency-Stufenleiter (Skript, Abschnitt 5) einordnen.
 
-Ordne jedes System einer Stufe 0–5 zu und begründe in einem Satz anhand der drei Einordnungsfragen. Wo die Einordnung von der konkreten Ausgestaltung abhängt, beschreibe beide Varianten.
+Ordne jedes der elf Systeme einer Stufe 0–5 zu und begründe in einem Satz anhand der drei Einordnungsfragen. Wo die Einordnung von der konkreten Ausgestaltung abhängt, beschreibe beide Varianten.
 
 | # | System |
 | --- | --- |
@@ -75,6 +76,7 @@ Ordne jedes System einer Stufe 0–5 zu und begründe in einem Satz anhand der d
 | 8 | Ein System, das nachts selbständig Fehlermeldungen aus dem Monitoring liest, die Ursache im Code sucht, einen Fix schreibt, Tests laufen lässt und einen Pull Request eröffnet |
 | 9 | Ein Reiseplaner, der dir drei Varianten vorschlägt, nach deiner Wahl Hotels sucht und erst nach deiner Bestätigung bucht |
 | 10 | Ein Schachprogramm wie Stockfish |
+| 11 | Der Agent-Modus von Cursor, der auf deine Anweisung hin Dateien liest, Code ändert und Terminal-Befehle ausführt |
 
 Achtung bei Nummer 10: Was sagt das über unsere Definition aus?
 

@@ -9,3 +9,5 @@
 | [Quiz](../docs/quiz/1.1-quiz.md) | 15 Fragen, bestanden ab 12 |
 
 Von dir anzulegen: `notizen.md`, `einordnung.md`, `positionspapier.md`.
+
+Editor: Cursor mit der Projektregel [`.cursor/rules/lernmodus.mdc`](../.cursor/rules/lernmodus.mdc). Schreib «KI-Modus» im Cursor-Chat, wenn eine Aufgabe KI-Unterstützung ausdrücklich verlangt.

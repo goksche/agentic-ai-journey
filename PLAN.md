@@ -65,19 +65,19 @@ Am Ende von Semester 1 läuft ein Single-Agent mit Tool-Calling, Speicher und Pl
 **Aufgaben**
 
 - [ ] GitHub-Repo `agentic-ai-journey` anlegen, mit Ordner pro Modul und README als Lernjournal
-- [ ] Entwicklungsumgebung: Python 3.12, uv, VS Code mit Copilot, Docker; API-Keys für OpenAI und Anthropic; optional Ollama lokal
+- [ ] Entwicklungsumgebung: Python 3.12, uv, Cursor (mit Projektregel «Lernmodus»), Docker; API-Keys für OpenAI und Anthropic; optional Ollama lokal
 - [ ] Einseitiges Positionspapier: «Was ist ein Agent, was nicht?» mit drei Beispielen aus unterschiedlichen Branchen
 
 ### Modul 1.2 – Python-Refresher mit KI (Woche 2–3, verdichtet)
 
 **Lernziele**: Python idiomatisch und asynchron schreiben; KI-generierten Code kritisch prüfen.
 
-**Inhalt**: Typing und Pydantic-Modelle, async/await, Context Manager, Dataclasses, pytest, Logging, Packaging; Arbeiten mit Copilot/Cursor (Prompt-Refinement, Review von generiertem Code).
+**Inhalt**: Typing und Pydantic-Modelle, async/await, Context Manager, Dataclasses, pytest, Logging, Packaging; Arbeiten mit Cursor (Prompt-Refinement, Review von generiertem Code).
 
 **Aufgaben**
 
 - [ ] CLI `loglens`: Webserver-Logs (Apache/Nginx-Format) einlesen, validieren (Pydantic), nach Status, Pfad und Zeitfenster aggregieren, als JSON exportieren – mit Tests
-- [ ] Dieselbe Aufgabe einmal selbst, einmal vollständig mit Copilot lösen; Unterschiede in einem Review-Dokument festhalten
+- [ ] Dieselbe Aufgabe einmal selbst, einmal vollständig mit dem Cursor-Agenten lösen; Unterschiede in einem Review-Dokument festhalten
 - [ ] Async-Übung: 20 parallele Abrufe gegen eine öffentliche API (z. B. Wikipedia) mit httpx, asyncio und Rate-Limiting
 
 ### Modul 1.3 – Foundations of AI & Agentic AI (Woche 4–5)
