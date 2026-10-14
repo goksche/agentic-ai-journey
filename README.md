@@ -17,7 +17,7 @@ Selbststudium Agentic AI – 36 Wochen, 3 Semester, 3 Projekte. Der vollständig
 
 | Modul | Status | Quiz | Abgeschlossen am |
 | --- | --- | --- | --- |
-| 1.1 Program Induction | offen | – | |
+| 1.1 Program Induction | in Arbeit | – | |
 | 1.2 Python-Refresher | offen | – | |
 | 1.3 Foundations | offen | – | |
 | 1.4 GenAI-Stack & Prompting | offen | – | |
