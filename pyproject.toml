@@ -1,7 +1,7 @@
 [project]
 name = "agentic-ai-journey"
 version = "0.1.0"
-description = "Add your description here"
+description = "Übungen zum Selbststudium Agentic AI"
 authors = [
     { name = "Goksche", email = "goksche23@gmail.com" }
 ]
@@ -12,9 +12,6 @@ dependencies = [
     "python-dotenv>=1.2.4",
 ]
 
-[project.scripts]
-agentic-ai-journey = "agentic_ai_journey:main"
-
-[build-system]
-requires = ["uv_build>=0.13.1,<0.14.0"]
-build-backend = "uv_build"
+[tool.uv]
+# Reines Übungs-Repo, kein installierbares Paket: Code liegt in module-*/ und projects/
+package = false
