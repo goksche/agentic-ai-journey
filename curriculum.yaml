@@ -1,0 +1,168 @@
+# Struktur des Studiums – Quelle für die Lernplattform (platform/)
+# Ein Modul ist «freigeschaltet», sobald seine Datei unter `aufgaben` im Repo existiert.
+# IDs nie ändern: Der Fortschritt in der Datenbank hängt an ihnen.
+
+title: Agentic AI – Selbststudium
+start: 2026-11-02
+weeks_total: 36
+
+semesters:
+  - id: s1
+    title: "Semester 1 – Grundlagen"
+    weeks: "1–12"
+    goal: "Ein Single-Agent mit Tool-Calling, Speicher und Planung, der Forschungsfragen mit überprüfbaren Quellen beantwortet."
+    modules:
+      - id: "1.1"
+        title: "Program Induction"
+        weeks: "1"
+        skript: docs/skripte/1.1-was-ist-ein-agent.md
+        aufgaben: module-1.1-induction/AUFGABEN.md
+        quiz: docs/quiz/1.1-quiz.md
+        tasks:
+          - { id: "1.1-a1", title: "Umgebung und API-Zugänge einrichten", hours: 2 }
+          - { id: "1.1-a2", title: "Quellen lesen und Notizen schreiben", hours: 2.5 }
+          - { id: "1.1-a3", title: "Einordnungsübung: 11 Systeme auf der Stufenleiter", hours: 1.5 }
+          - { id: "1.1-a4", title: "Positionspapier «Was ist ein Agent, was nicht?»", hours: 3 }
+          - { id: "1.1-a5", title: "Feynman-Notiz und Wochenjournal", hours: 1 }
+      - id: "1.2"
+        title: "Python-Refresher mit KI"
+        weeks: "2–3"
+        skript: docs/skripte/1.2-python.md
+        aufgaben: module-1.2-python/AUFGABEN.md
+        quiz: docs/quiz/1.2-quiz.md
+        tasks:
+          - { id: "1.2-a1", title: "CLI «loglens» mit Pydantic und Tests" }
+          - { id: "1.2-a2", title: "Dieselbe Aufgabe mit dem Cursor-Agenten lösen und vergleichen" }
+          - { id: "1.2-a3", title: "Async-Übung: 20 parallele API-Abrufe mit Rate-Limiting" }
+      - id: "1.3"
+        title: "Foundations of AI & Agentic AI"
+        weeks: "4–5"
+        skript: docs/skripte/1.3-foundations.md
+        aufgaben: module-1.3-foundations/AUFGABEN.md
+        quiz: docs/quiz/1.3-quiz.md
+        tasks:
+          - { id: "1.3-a1", title: "Drei Paper lesen und zusammenfassen" }
+          - { id: "1.3-a2", title: "Notebook: Embeddings für 200 arXiv-Abstracts" }
+          - { id: "1.3-a3", title: "ReAct-Loop von Hand in reinem Python" }
+      - id: "1.4"
+        title: "GenAI Tech Stack und Prompt Engineering"
+        weeks: "6–7"
+        skript: docs/skripte/1.4-prompting.md
+        aufgaben: module-1.4-prompting/AUFGABEN.md
+        quiz: docs/quiz/1.4-quiz.md
+        tasks:
+          - { id: "1.4-a1", title: "Prompt-Bibliothek mit 10 Vorlagen" }
+          - { id: "1.4-a2", title: "Evaluations-Harness: 30 Testfälle, 3 Modelle" }
+          - { id: "1.4-a3", title: "Red-Team-Übung: 5 Prompt-Injection-Angriffe" }
+      - id: "1.5"
+        title: "LLM Internals & Planning Systems"
+        weeks: "8–11"
+        skript: docs/skripte/1.5-llm-internals.md
+        aufgaben: module-1.5-llm-internals/AUFGABEN.md
+        quiz: docs/quiz/1.5-quiz.md
+        tasks:
+          - { id: "1.5-a1", title: "Tool-Calling ohne Framework (3 Tools)" }
+          - { id: "1.5-a2", title: "RAG über 50 Paper mit Retrieval-Evaluation" }
+          - { id: "1.5-a3", title: "LangGraph-Agent mit Checkpointing und Freigabe" }
+      - id: "P1"
+        title: "Semesterprojekt 1 – Scholar"
+        weeks: "11–12"
+        project: true
+        aufgaben: projects/scholar/AUFGABEN.md
+        tasks:
+          - { id: "P1-a1", title: "Architektur und Rechercheplan-Logik" }
+          - { id: "P1-a2", title: "5 Forschungsfragen mit Berichten" }
+          - { id: "P1-a3", title: "Zitat-Audit (Ziel ≥ 95 % korrekt)" }
+          - { id: "P1-a4", title: "Kostenübersicht und Demo-Aufzeichnung" }
+
+  - id: s2
+    title: "Semester 2 – Multi-Agenten-Systeme"
+    weeks: "13–24"
+    goal: "Multi-Agent-Systeme in LangGraph, CrewAI, AutoGen und n8n, angebunden über eigene MCP-Server, gemessen an SWE-bench Lite."
+    modules:
+      - id: "2.1"
+        title: "Multi-Agent I: CrewAI und LangGraph"
+        weeks: "13–16"
+        aufgaben: module-2.1-crewai-langgraph/AUFGABEN.md
+        tasks:
+          - { id: "2.1-a1", title: "CrewAI-Crew «Due Diligence»" }
+          - { id: "2.1-a2", title: "Dasselbe System in LangGraph mit Supervisor" }
+          - { id: "2.1-a3", title: "Agentic RAG mit Routing" }
+          - { id: "2.1-a4", title: "Debatte-Muster mit Blindbewertung" }
+      - id: "2.2"
+        title: "Multi-Agent II: AutoGen und n8n"
+        weeks: "17–20"
+        aufgaben: module-2.2-autogen-n8n/AUFGABEN.md
+        tasks:
+          - { id: "2.2-a1", title: "AutoGen Group Chat «Incident-Postmortem»" }
+          - { id: "2.2-a2", title: "n8n-Workflow für GitHub-Issue-Triage" }
+          - { id: "2.2-a3", title: "Lasttest mit 50 parallelen Issues" }
+          - { id: "2.2-a4", title: "Entscheidungsmatrix für Frameworks" }
+      - id: "2.3"
+        title: "Model Context Protocol und Tooling"
+        weeks: "21–23"
+        aufgaben: module-2.3-mcp/AUFGABEN.md
+        tasks:
+          - { id: "2.3-a1", title: "MCP-Server «repo-tools» mit Sandbox" }
+          - { id: "2.3-a2", title: "MCP-Server «web-research»" }
+          - { id: "2.3-a3", title: "Sicherheitsreview und abgewehrter Angriff" }
+          - { id: "2.3-a4", title: "System-Prompt-Architektur" }
+      - id: "P2"
+        title: "Semesterprojekt 2 – Forge"
+        weeks: "23–24"
+        project: true
+        aufgaben: projects/forge/AUFGABEN.md
+        tasks:
+          - { id: "P2-a1", title: "Architekturdokument (C4-Level 2)" }
+          - { id: "P2-a2", title: "Vier-Agenten-Team lauffähig" }
+          - { id: "P2-a3", title: "Benchmark auf 30 SWE-bench-Lite-Aufgaben (Ziel ≥ 25 %)" }
+          - { id: "P2-a4", title: "Präsentation für technisches Publikum" }
+
+  - id: s3
+    title: "Semester 3 – Produktreife"
+    weeks: "25–36"
+    goal: "Agentensysteme messbar, vertrauenswürdig und produktionsreif betreiben, auch in Azure – plus Capstone."
+    modules:
+      - id: "3.1"
+        title: "Metrics, GTM & ROI"
+        weeks: "25–27"
+        aufgaben: module-3.1-metrics/AUFGABEN.md
+        tasks:
+          - { id: "3.1-a1", title: "Langfuse aufsetzen und Forge tracen" }
+          - { id: "3.1-a2", title: "Eval-Suite: Baseline und drei Iterationen" }
+          - { id: "3.1-a3", title: "ROI-Modell mit Sensitivitätsanalyse" }
+          - { id: "3.1-a4", title: "Einseitiges GTM-Papier" }
+      - id: "3.2"
+        title: "Agentic UX Design & Transparency"
+        weeks: "28–29"
+        aufgaben: module-3.2-ux/AUFGABEN.md
+        tasks:
+          - { id: "3.2-a1", title: "UX-Richtlinie «Autonome Codeänderungen»" }
+          - { id: "3.2-a2", title: "Prototyp Freigabe-Dialog (React)" }
+          - { id: "3.2-a3", title: "Guardrail-Layer mit 10 Regeln" }
+      - id: "3.3"
+        title: "Dev Tools & Product Readiness"
+        weeks: "30–31"
+        aufgaben: module-3.3-readiness/AUFGABEN.md
+        tasks:
+          - { id: "3.3-a1", title: "CI-Pipeline mit Eval-Gate" }
+          - { id: "3.3-a2", title: "Runbook für den Betrieb" }
+          - { id: "3.3-a3", title: "Produktionsreife-Checkliste (30 Punkte)" }
+      - id: "3.4"
+        title: "AI Agents on Azure"
+        weeks: "32–33"
+        aufgaben: module-3.4-azure/AUFGABEN.md
+        tasks:
+          - { id: "3.4-a1", title: "Scholar nach Azure portieren" }
+          - { id: "3.4-a2", title: "Microsoft-Lernpfad abschliessen" }
+          - { id: "3.4-a3", title: "Copilot-Studio-Prototyp" }
+      - id: "P3"
+        title: "Capstone – Product Strategy Simulation"
+        weeks: "34–36"
+        project: true
+        aufgaben: projects/capstone/AUFGABEN.md
+        tasks:
+          - { id: "P3-a1", title: "Vier-Agenten-System lauffähig" }
+          - { id: "P3-a2", title: "Lean Canvas mit belegten Zahlen" }
+          - { id: "P3-a3", title: "Chatbot deployt" }
+          - { id: "P3-a4", title: "Live-Demo und Blogartikel" }

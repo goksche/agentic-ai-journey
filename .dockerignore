@@ -1,0 +1,8 @@
+.git
+**/node_modules
+**/.env
+.venv
+**/__pycache__
+platform/.next
+platform/data
+platform/docker-compose.yml

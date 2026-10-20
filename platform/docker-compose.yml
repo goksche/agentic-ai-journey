@@ -1,0 +1,35 @@
+# Start auf dem Server (im Ordner platform/):  docker compose up -d --build
+name: agentic-campus
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: platform/Dockerfile
+    env_file: .env
+    environment:
+      CONTENT_DIR: /app/content
+      DATA_DIR: /data
+    volumes:
+      - campus-data:/data
+    restart: unless-stopped
+
+  caddy:
+    image: caddy:2
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      CAMPUS_DOMAIN: ${CAMPUS_DOMAIN:?CAMPUS_DOMAIN in .env setzen}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    restart: unless-stopped
+
+volumes:
+  campus-data:
+  caddy-data:
+  caddy-config:
