@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { load as parseYaml } from "js-yaml";
 
-export type Task = { id: string; title: string; hours?: number };
+export type Task = { id: string; title: string; hours?: number; files?: string[] };
 export type Module = {
   id: string;
   title: string;

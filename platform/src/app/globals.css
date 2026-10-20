@@ -884,3 +884,36 @@ a.module-row:hover {
     top: 15px;
   }
 }
+
+/* Dateien pro Aufgabe */
+.task-files {
+  list-style: none;
+  margin: -6px 0 12px;
+  padding: 0 0 0 42px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  font-size: var(--step--1);
+}
+.task-files li {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+.task-files a {
+  color: var(--muted);
+}
+.task-files a:hover {
+  color: var(--ink);
+}
+.task-files .edit-link {
+  font-weight: 700;
+  color: var(--pine);
+}
+.btn-small {
+  padding: 3px 12px;
+  font-size: var(--step--1);
+}
+.doc-meta {
+  align-items: center;
+}

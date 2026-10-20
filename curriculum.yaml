@@ -19,11 +19,11 @@ semesters:
         aufgaben: module-1.1-induction/AUFGABEN.md
         quiz: docs/quiz/1.1-quiz.yaml
         tasks:
-          - { id: "1.1-a1", title: "Umgebung und API-Zugänge einrichten", hours: 2 }
-          - { id: "1.1-a2", title: "Quellen lesen und Notizen schreiben", hours: 2.5 }
-          - { id: "1.1-a3", title: "Einordnungsübung: 11 Systeme auf der Stufenleiter", hours: 1.5 }
-          - { id: "1.1-a4", title: "Positionspapier «Was ist ein Agent, was nicht?»", hours: 3 }
-          - { id: "1.1-a5", title: "Feynman-Notiz und Wochenjournal", hours: 1 }
+          - { id: "1.1-a1", title: "Umgebung und API-Zugänge einrichten", hours: 2, files: [pyproject.toml, module-1.1-induction/check_setup.py] }
+          - { id: "1.1-a2", title: "Quellen lesen und Notizen schreiben", hours: 2.5, files: [module-1.1-induction/notizen.md] }
+          - { id: "1.1-a3", title: "Einordnungsübung: 11 Systeme auf der Stufenleiter", hours: 1.5, files: [module-1.1-induction/einordnung.md] }
+          - { id: "1.1-a4", title: "Positionspapier «Was ist ein Agent, was nicht?»", hours: 3, files: [module-1.1-induction/positionspapier.md] }
+          - { id: "1.1-a5", title: "Feynman-Notiz und Wochenjournal", hours: 1, files: [module-1.1-induction/FEYNMAN.md, journal/2026-43.md] }
       - id: "1.2"
         title: "Python-Refresher mit KI"
         weeks: "2–3"

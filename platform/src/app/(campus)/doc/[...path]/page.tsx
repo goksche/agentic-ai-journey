@@ -7,8 +7,7 @@ import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import { allModules, loadCurriculum, readDoc } from "@/lib/curriculum";
 import { logActivity } from "@/lib/db";
-
-const GITHUB_BLOB = process.env.GITHUB_BLOB_URL ?? "https://github.com/goksche/agentic-ai-journey/blob/main";
+import { githubBlobUrl, githubEditUrl, isStudentFile } from "@/lib/github";
 
 export default async function DocPage({ params }: { params: Promise<{ path: string[] }> }) {
   const { path: parts } = await params;
@@ -18,7 +17,9 @@ export default async function DocPage({ params }: { params: Promise<{ path: stri
   if (source === null) notFound();
 
   logActivity("doc_opened", rel);
-  const owner = allModules(loadCurriculum()).find((m) => [m.skript, m.aufgaben, m.quiz].includes(rel));
+  const owner = allModules(loadCurriculum()).find(
+    (m) => [m.skript, m.aufgaben, m.quiz].includes(rel) || m.tasks.some((t) => t.files?.includes(rel)),
+  );
   const baseDir = path.posix.dirname(rel);
 
   const components: Components = {
@@ -39,7 +40,7 @@ export default async function DocPage({ params }: { params: Promise<{ path: stri
         return <Link href={`/doc/${resolved}${hash ? `#${hash}` : ""}`}>{children}</Link>;
       }
       return (
-        <a href={`${GITHUB_BLOB}/${resolved}`} target="_blank" rel="noreferrer">
+        <a href={githubBlobUrl(resolved)} target="_blank" rel="noreferrer">
           {children}
         </a>
       );
@@ -61,9 +62,14 @@ export default async function DocPage({ params }: { params: Promise<{ path: stri
       </p>
       <div className="doc-meta">
         <span>{rel}</span>
-        <a href={`${GITHUB_BLOB}/${rel}`} target="_blank" rel="noreferrer">
+        <a href={githubBlobUrl(rel)} target="_blank" rel="noreferrer">
           Auf GitHub ansehen
         </a>
+        {isStudentFile(rel) && (
+          <a className="btn btn-primary btn-small" href={githubEditUrl(rel)} target="_blank" rel="noreferrer">
+            Bearbeiten
+          </a>
+        )}
       </div>
       <article className="doc">
         <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw, rehypeSlug]} components={components}>

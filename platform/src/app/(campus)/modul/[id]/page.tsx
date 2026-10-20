@@ -2,6 +2,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { completeModule, toggleTask } from "@/app/actions";
 import { quizAttempts } from "@/lib/db";
+import { githubBlobUrl, githubEditUrl } from "@/lib/github";
+import { fileExists } from "@/lib/curriculum";
 import { formatDate, formatHours } from "@/lib/format";
 import { getModule } from "@/lib/progress";
 
@@ -67,6 +69,24 @@ export default async function ModulePage({ params }: { params: Promise<{ id: str
                         <span className="task-hours">{formatHours(t.hours)}</span>
                       </button>
                     </form>
+                    {t.files && t.files.length > 0 && (
+                      <ul className="task-files" aria-label={`Dateien zu Aufgabe ${i + 1}`}>
+                        {t.files.map((f) => (
+                          <li key={f}>
+                            {f.endsWith(".md") && fileExists(f) ? (
+                              <Link href={`/doc/${f}`}>{f.split("/").pop()}</Link>
+                            ) : (
+                              <a href={githubBlobUrl(f)} target="_blank" rel="noreferrer">
+                                {f.split("/").pop()}
+                              </a>
+                            )}
+                            <a className="edit-link" href={githubEditUrl(f)} target="_blank" rel="noreferrer">
+                              Bearbeiten
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </li>
                 );
               })}
