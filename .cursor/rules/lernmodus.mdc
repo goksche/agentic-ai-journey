@@ -22,6 +22,8 @@ Wenn die Person «KI-Modus» schreibt (z. B. für Aufgaben, die ausdrücklich KI
 
 ## Immer erlaubt
 
+- Alles unter `platform/` (die Lernplattform) ist kein Übungsstoff: Hier darfst du vollständig implementieren, deployen und debuggen. Auftrag und Grenzen stehen in `platform/CURSOR-DEPLOY.md`.
+
 - Konfiguration und Infrastruktur: `pyproject.toml`, Dockerfiles, CI-Workflows, `.gitignore`.
 - Formatierung, Linting, Umbenennungen ohne inhaltliche Änderung.
 
