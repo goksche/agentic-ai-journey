@@ -650,6 +650,15 @@ a.module-row:hover {
   color: var(--ink);
   margin-bottom: 14px;
 }
+.login-card .muted,
+.login-card .info {
+  margin: 0 0 14px;
+}
+.login-card .btn-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
 .error {
   color: #b3261e;
   margin: 0 0 12px;

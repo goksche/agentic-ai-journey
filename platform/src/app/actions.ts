@@ -1,11 +1,12 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { cookies, headers } from "next/headers";
+import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { allModules, loadCurriculum } from "@/lib/curriculum";
 import { setModuleCompleted, setQuizScore, setTaskDone } from "@/lib/db";
-import { clearFailures, isLockedOut, recordFailure, verifyPassword } from "@/lib/password";
+import { loginEmail, maskEmail, sendLoginCode } from "@/lib/mail";
+import { CODE_TTL_MINUTES, discardLoginCode, issueLoginCode, verifyLoginCode } from "@/lib/otp";
 import { QUIZ_TOTAL, getModule } from "@/lib/progress";
 import { SESSION_COOKIE, SESSION_DAYS, createSessionToken, isValidSession } from "@/lib/session";
 
@@ -53,28 +54,50 @@ export async function completeModule(formData: FormData) {
   revalidatePath(`/modul/${moduleId}`);
 }
 
-export type LoginState = { error: string | null };
+export type LoginState = { step: "request" | "verify"; error: string | null; info: string | null };
 
-export async function login(_prev: LoginState, formData: FormData): Promise<LoginState> {
-  const h = await headers();
-  const ip = h.get("x-forwarded-for")?.split(",")[0].trim() || h.get("x-real-ip") || "local";
-  if (isLockedOut(ip)) {
-    return { error: "Zu viele Fehlversuche. Versuch es in 15 Minuten erneut." };
-  }
-  const password = String(formData.get("password") ?? "");
-  let ok = false;
+async function sendCode(): Promise<LoginState> {
+  let issued;
   try {
-    ok = verifyPassword(password);
+    issued = issueLoginCode();
   } catch (e) {
     console.error(e);
-    return { error: "Der Server ist nicht vollständig eingerichtet: CAMPUS_PASSWORD_HASH prüfen." };
+    return { step: "request", error: "Der Server ist nicht vollständig eingerichtet: CAMPUS_SESSION_SECRET prüfen.", info: null };
   }
-  if (!ok) {
-    recordFailure(ip);
+  if (!issued.ok) {
+    const error =
+      issued.reason === "too_soon"
+        ? "Es wurde gerade ein Code verschickt. Warte eine Minute, bevor du einen neuen anforderst."
+        : "Zu viele Codes in der letzten Stunde. Versuch es später erneut.";
+    return { step: "verify", error, info: null };
+  }
+  try {
+    await sendLoginCode(issued.code);
+  } catch (e) {
+    console.error(e);
+    discardLoginCode(issued.id);
+    return { step: "request", error: "Die E-Mail konnte nicht verschickt werden. SMTP-Einstellungen prüfen.", info: null };
+  }
+  return { step: "verify", error: null, info: `Code an ${maskEmail(loginEmail())} geschickt. Er ist ${CODE_TTL_MINUTES} Minuten gültig.` };
+}
+
+export async function login(_prev: LoginState, formData: FormData): Promise<LoginState> {
+  if (formData.get("intent") !== "verify" || formData.get("resend") === "1") return sendCode();
+
+  const code = String(formData.get("code") ?? "").replace(/\s/g, "");
+  if (!/^\d{6}$/.test(code)) {
+    return { step: "verify", error: "Der Code besteht aus 6 Ziffern.", info: null };
+  }
+  const result = verifyLoginCode(code);
+  if (result !== "ok") {
     await new Promise((r) => setTimeout(r, 800));
-    return { error: "Das Passwort stimmt nicht." };
+    const error = {
+      invalid: "Der Code stimmt nicht.",
+      expired: "Der Code ist abgelaufen oder wurde schon verwendet. Fordere einen neuen an.",
+      locked: "Zu viele Fehlversuche mit diesem Code. Fordere einen neuen an.",
+    }[result];
+    return { step: "verify", error, info: null };
   }
-  clearFailures(ip);
   (await cookies()).set(SESSION_COOKIE, await createSessionToken(), {
     httpOnly: true,
     sameSite: "lax",

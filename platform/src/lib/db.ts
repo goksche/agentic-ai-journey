@@ -29,6 +29,14 @@ function getDb(): Database.Database {
       kind TEXT NOT NULL,
       ref TEXT NOT NULL
     );
+    CREATE TABLE IF NOT EXISTS login_codes (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      code_hash TEXT NOT NULL,
+      created_at TEXT NOT NULL,
+      expires_at TEXT NOT NULL,
+      attempts INTEGER NOT NULL DEFAULT 0,
+      used_at TEXT
+    );
   `);
   return db;
 }
@@ -86,6 +94,38 @@ export type Activity = { at: string; kind: string; ref: string };
 
 export function recentActivity(limit = 8): Activity[] {
   return getDb().prepare("SELECT at, kind, ref FROM activity ORDER BY id DESC LIMIT ?").all(limit) as Activity[];
+}
+
+export type LoginCode = { id: number; code_hash: string; created_at: string; expires_at: string; attempts: number; used_at: string | null };
+
+export function latestLoginCode(): LoginCode | null {
+  return (getDb().prepare("SELECT * FROM login_codes ORDER BY id DESC LIMIT 1").get() as LoginCode | undefined) ?? null;
+}
+
+export function countLoginCodesSince(iso: string): number {
+  const row = getDb().prepare("SELECT COUNT(*) AS n FROM login_codes WHERE created_at >= ?").get(iso) as { n: number };
+  return row.n;
+}
+
+/** Legt einen neuen Code an; alle älteren offenen Codes werden damit ungültig. */
+export function insertLoginCode(codeHash: string, expiresAt: string): number {
+  const d = getDb();
+  const at = now();
+  d.prepare("UPDATE login_codes SET used_at = ? WHERE used_at IS NULL").run(at);
+  const info = d.prepare("INSERT INTO login_codes (code_hash, created_at, expires_at) VALUES (?, ?, ?)").run(codeHash, at, expiresAt);
+  return Number(info.lastInsertRowid);
+}
+
+export function deleteLoginCode(id: number): void {
+  getDb().prepare("DELETE FROM login_codes WHERE id = ?").run(id);
+}
+
+export function recordLoginCodeAttempt(id: number): void {
+  getDb().prepare("UPDATE login_codes SET attempts = attempts + 1 WHERE id = ?").run(id);
+}
+
+export function markLoginCodeUsed(id: number): void {
+  getDb().prepare("UPDATE login_codes SET used_at = ? WHERE id = ?").run(now(), id);
 }
 
 export function lastOpenedDoc(): string | null {

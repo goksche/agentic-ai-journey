@@ -23,13 +23,14 @@ Voraussetzung: Node.js 22.
 cd platform
 npm install
 copy .env.example .env
-npm run hash-password      # Ausgabe als CAMPUS_PASSWORD_HASH in .env eintragen
+# CAMPUS_LOGIN_EMAIL: deine Adresse
 # CAMPUS_SESSION_SECRET: beliebige Zeichenfolge mit mindestens 32 Zeichen
+# SMTP_* leer lassen: Der Login-Code erscheint dann in der Konsole
 npm run dev
 ```
 
-Dann http://localhost:3000 öffnen.
+Dann http://localhost:3000 öffnen, «Code per E-Mail senden» klicken und den Code aus der Konsole eingeben.
 
 ## Technik
 
-Next.js 15 (App Router, Server Actions), better-sqlite3, jose für die Sitzung, react-markdown für die Dokumente. Schriften: Atkinson Hyperlegible und Source Serif 4, lokal eingebunden.
+Next.js 15 (App Router, Server Actions), better-sqlite3, jose für die Sitzung, nodemailer für den Login-Code, react-markdown für die Dokumente. Schriften: Atkinson Hyperlegible und Source Serif 4, lokal eingebunden.

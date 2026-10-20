@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "hash-password": "node scripts/hash-password.mjs"
+    "notfall-code": "node scripts/notfall-code.mjs"
   },
   "dependencies": {
     "@fontsource-variable/source-serif-4": "^5.3.1",
@@ -15,6 +15,7 @@
     "jose": "^6.2.13",
     "js-yaml": "^5.5.0",
     "next": "^15.5.28",
+    "nodemailer": "^10.1.7",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "react-markdown": "^10.1.0",
@@ -27,6 +28,7 @@
     "@types/better-sqlite3": "^9.6.0",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^26.6.5",
+    "@types/nodemailer": "^8.0.2",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "typescript": "5.9"

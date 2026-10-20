@@ -21,7 +21,7 @@ Für `platform/` gilt der Lernmodus nicht: Der Agent darf hier vollständig impl
 | Persistenz | Verzeichnis `/data` im Container (SQLite-Datei `campus.db`) |
 | Inhalte | werden beim Build aus dem Repo ins Image kopiert (`/app/content`) |
 | Healthcheck | `GET /healthz` liefert `ok` |
-| Pflicht-Umgebungsvariablen | `CAMPUS_PASSWORD_HASH`, `CAMPUS_SESSION_SECRET` (siehe `.env.example`) |
+| Pflicht-Umgebungsvariablen | `CAMPUS_LOGIN_EMAIL`, `CAMPUS_SESSION_SECRET`, `SMTP_HOST`, `SMTP_PORT`, `SMTP_USERNAME`, `SMTP_PASSWORD`, `SMTP_FROM` (siehe `.env.example`) |
 | Architektur | amd64 und arm64 werden unterstützt |
 | Ressourcen | ca. 150 MB RAM im Betrieb; der Build braucht kurzzeitig ca. 1,5 GB |
 
@@ -53,11 +53,7 @@ Wichtige Header, die der bestehende Proxy setzen soll (Vorlage siehe `platform/C
 
 1. Repo auf den Server klonen (Vorschlag: `/opt/agentic-ai-journey`) oder ein bestehendes Projektverzeichnis-Schema des Servers übernehmen.
 2. `platform/.env` aus `.env.example` erzeugen.
-3. **Passwort:** G gibt das Passwort selbst ein. Das Skript fragt es interaktiv ab:
-   ```bash
-   docker run --rm -it -v "$PWD/scripts:/s:ro" node:22-bookworm-slim node /s/hash-password.mjs
-   ```
-   Die Ausgabe (`scrypt:…:…`) kommt als `CAMPUS_PASSWORD_HASH` in `.env`. Das Klartext-Passwort nie in Dateien, Logs oder den Chat schreiben.
+3. **Login per E-Mail-Code:** `CAMPUS_LOGIN_EMAIL` ist die Adresse von G. Die `SMTP_*`-Werte gehören zu einem Absender-Konto; falls der Server schon einen Dienst mit Mailversand hat, mit G klären, ob dessen Konto mitbenutzt werden darf. Das SMTP-Passwort nie in den Chat, in Logs oder ins Repo schreiben, nur direkt auf dem Server in `.env` übernehmen.
 4. `CAMPUS_SESSION_SECRET` mit `openssl rand -hex 32` erzeugen.
 5. Bei Variante A: `CAMPUS_DOMAIN` setzen.
 6. `.env` muss `chmod 600` haben und darf nie committet werden. `platform/.gitignore` deckt das ab, bitte prüfen.
@@ -74,7 +70,9 @@ curl -fsS http://127.0.0.1:<Port>/healthz   # bei Variante B/C; bei A über die 
 Abnahme, bevor G informiert wird:
 
 - [ ] `https://<campus-domain>` zeigt die Anmeldeseite mit gültigem Zertifikat
-- [ ] Falsches Passwort ergibt die Meldung «Das Passwort stimmt nicht.»
+- [ ] «Code per E-Mail senden» liefert eine Mail an `CAMPUS_LOGIN_EMAIL` (G bestätigt den Empfang)
+- [ ] Ein falscher Code ergibt die Meldung «Der Code stimmt nicht.»
+- [ ] `docker compose exec app node scripts/notfall-code.mjs` gibt einen Code aus, mit dem der Login über «Ich habe schon einen Code» klappt
 - [ ] Nach dem Login zeigt die Übersicht den gelben Wegweiser mit Modul 1.1
 - [ ] Eine Aufgabe abhaken, `docker compose restart app`: Der Haken ist noch da (Persistenz geprüft); danach den Haken wieder entfernen
 - [ ] `/doc/docs/skripte/1.1-was-ist-ein-agent.md` zeigt das Lernskript

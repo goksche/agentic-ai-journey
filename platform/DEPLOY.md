@@ -71,13 +71,7 @@ cd /opt/agentic-ai-journey/platform
 cp .env.example .env
 ```
 
-**Passwort-Hash erzeugen** (dein Login-Passwort, mindestens 12 Zeichen):
-
-```bash
-docker run --rm -it -v "$PWD/scripts:/s:ro" node:22-bookworm-slim node /s/hash-password.mjs
-```
-
-Das Skript fragt das Passwort ab und gibt eine Zeile wie `scrypt:3f1a…:9c2e…` aus.
+Die Anmeldung läuft ohne Passwort: Auf der Login-Seite schickt die Plattform einen 6-stelligen Code an deine E-Mail-Adresse. Dafür braucht sie ein Mailkonto zum Versenden (SMTP-Zugang deines Mailanbieters).
 
 **Sitzungsschlüssel erzeugen:**
 
@@ -88,10 +82,17 @@ openssl rand -hex 32
 Jetzt `.env` bearbeiten (`nano .env`, speichern mit Ctrl+O, Enter, Ctrl+X):
 
 ```
-CAMPUS_PASSWORD_HASH=scrypt:...          ← Ausgabe des Hash-Skripts
+CAMPUS_LOGIN_EMAIL=du@example.ch         ← hierhin kommt der Login-Code
 CAMPUS_SESSION_SECRET=...                ← Ausgabe von openssl
+SMTP_HOST=smtp.example.ch                ← Zugang des Absender-Mailkontos
+SMTP_PORT=587
+SMTP_USERNAME=...
+SMTP_PASSWORD=...
+SMTP_FROM=noreply@example.ch
 CAMPUS_DOMAIN=campus.deinedomain.ch      ← deine Adresse aus Schritt 2
 ```
+
+Danach `chmod 600 .env`, denn die Datei enthält das Mail-Passwort.
 
 Die Zeilen `CONTENT_DIR` und `DATA_DIR` lässt du, wie sie sind.
 
@@ -149,16 +150,17 @@ Auf deinen Rechner holen (PowerShell): `scp root@<SERVER-IP>:/root/backups/*.db 
 | Symptom | Ursache und Lösung |
 | --- | --- |
 | Browser meldet Zertifikatsfehler | DNS zeigt noch nicht auf den Server, oder Port 80/443 ist zu. `nslookup` prüfen, `ufw status` prüfen, dann `docker compose restart caddy`. |
-| «Der Server ist nicht vollständig eingerichtet» beim Login | `CAMPUS_PASSWORD_HASH` fehlt in `.env` oder ist unvollständig kopiert. Danach `docker compose up -d`. |
-| Login klappt, aber man landet wieder auf der Anmeldung | `CAMPUS_SESSION_SECRET` fehlt oder ist kürzer als 32 Zeichen. |
-| «Zu viele Fehlversuche» | Schutz gegen Durchprobieren: 15 Minuten warten oder `docker compose restart app`. |
+| «Der Server ist nicht vollständig eingerichtet» beim Login | `CAMPUS_SESSION_SECRET` fehlt oder ist kürzer als 32 Zeichen. Danach `docker compose up -d`. |
+| «Die E-Mail konnte nicht verschickt werden» | `SMTP_*` oder `CAMPUS_LOGIN_EMAIL` in `.env` prüfen, Ursache in `docker compose logs app`. Danach `docker compose up -d`. |
+| Keine Mail angekommen | Spam-Ordner prüfen. Neuer Code frühestens nach 1 Minute, höchstens 5 pro Stunde. |
+| «Zu viele Fehlversuche mit diesem Code» | Nach 5 falschen Eingaben ist der Code gesperrt: neuen Code anfordern. |
+| Mailversand fällt aus, du musst trotzdem rein | Auf dem Server im Ordner `platform/`: `docker compose exec app node scripts/notfall-code.mjs`. Auf der Login-Seite «Ich habe schon einen Code» wählen und den ausgegebenen Code eingeben. |
 | Neues Modul erscheint nicht | `cat /var/log/campus-deploy.log` ansehen, notfalls `./deploy.sh --force`. |
-| Passwort vergessen | Neuen Hash erzeugen (Schritt 4), in `.env` ersetzen, `docker compose up -d`. |
 
 ## Sicherheit in Kürze
 
 - Nur Caddy ist von aussen erreichbar; die App selbst hat keinen offenen Port.
-- Login mit einem einzigen Passwort, gespeichert nur als scrypt-Hash; Sitzung 30 Tage per signiertem, `httpOnly`-Cookie.
-- Max. 8 Fehlversuche pro 15 Minuten und IP.
+- Login per Einmal-Code an eine feste E-Mail-Adresse: 6 Ziffern, 10 Minuten gültig, nur einmal verwendbar, gespeichert nur als HMAC. Sitzung 30 Tage per signiertem, `httpOnly`-Cookie.
+- Max. 5 Fehlversuche pro Code; neuer Code frühestens nach 1 Minute, höchstens 5 pro Stunde.
 - Suchmaschinen werden ausgesperrt (`noindex`).
 - Halte den Server aktuell: `apt update && apt upgrade -y` einmal im Monat.
