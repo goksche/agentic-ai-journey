@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { completeModule, saveQuiz, toggleTask } from "@/app/actions";
+import { completeModule, toggleTask } from "@/app/actions";
+import { quizAttempts } from "@/lib/db";
 import { formatDate, formatHours } from "@/lib/format";
-import { QUIZ_PASS, QUIZ_TOTAL, getModule } from "@/lib/progress";
+import { getModule } from "@/lib/progress";
 
 export default async function ModulePage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -11,7 +12,10 @@ export default async function ModulePage({ params }: { params: Promise<{ id: str
 
   const nextIndex = m.tasks.findIndex((t) => !m.doneMap.has(t.id));
   const openHours = m.tasks.filter((t) => !m.doneMap.has(t.id)).reduce((n, t) => n + (t.hours ?? 0), 0);
-  const needsQuiz = !m.project && !!m.quiz;
+  const needsQuiz = m.quizTotal > 0;
+  const attempts = needsQuiz ? quizAttempts(m.id) : [];
+  const examAttempts = attempts.filter((a) => a.mode === "exam");
+  const lastExam = examAttempts[0];
 
   return (
     <>
@@ -78,36 +82,37 @@ export default async function ModulePage({ params }: { params: Promise<{ id: str
               <div className="doclinks">
                 {m.skript && <Link href={`/doc/${m.skript}`}>Lernskript</Link>}
                 {m.aufgaben && <Link href={`/doc/${m.aufgaben}`}>Aufgabenblatt</Link>}
-                {m.quiz && <Link href={`/doc/${m.quiz}`}>Quiz</Link>}
               </div>
             </section>
 
             {needsQuiz && (
               <section className="panel" aria-labelledby="quiz-title">
                 <h2 id="quiz-title">Quiz</h2>
-                <form action={saveQuiz} className="quiz-form">
-                  <input type="hidden" name="moduleId" value={m.id} />
-                  <label htmlFor="score">Richtige Antworten</label>
-                  <input
-                    id="score"
-                    name="score"
-                    type="number"
-                    min={0}
-                    max={QUIZ_TOTAL}
-                    defaultValue={m.quizScore ?? ""}
-                    inputMode="numeric"
-                  />
-                  <span className="muted">von {QUIZ_TOTAL}</span>
-                  <button type="submit" className="btn">
-                    Speichern
-                  </button>
-                </form>
+                <p className="quiz-score">
+                  {m.quizScore === null ? (
+                    <span className="muted">Noch nicht bearbeitet</span>
+                  ) : (
+                    <>
+                      <strong>
+                        Bestes Ergebnis: {m.quizScore} von {m.quizTotal}
+                      </strong>
+                      <span className={m.quizPassed ? "ok" : "muted"}>{m.quizPassed ? "bestanden" : "noch nicht bestanden"}</span>
+                    </>
+                  )}
+                </p>
+                <div className="btn-col">
+                  <Link className={`btn ${m.quizPassed ? "" : "btn-primary"}`} href={`/quiz/${m.id}`}>
+                    {examAttempts.length === 0 ? "Quiz starten" : "Neuer Versuch"}
+                  </Link>
+                  {lastExam && (
+                    <Link className="btn" href={`/quiz/${m.id}/ergebnis/${lastExam.id}`}>
+                      Letztes Ergebnis ansehen
+                    </Link>
+                  )}
+                </div>
                 <p className="note">
-                  {m.quizScore === null
-                    ? `Bestanden ab ${QUIZ_PASS} richtigen.`
-                    : m.quizPassed
-                      ? `Bestanden mit ${m.quizScore} von ${QUIZ_TOTAL}.`
-                      : `${m.quizScore} von ${QUIZ_TOTAL}: noch nicht bestanden. Nötig sind ${QUIZ_PASS}.`}
+                  {m.quizTotal} Fragen, bestanden ab {m.quizPass}.
+                  {examAttempts.length > 0 ? ` ${examAttempts.length} ${examAttempts.length === 1 ? "Versuch" : "Versuche"} bisher.` : ""}
                 </p>
               </section>
             )}

@@ -37,11 +37,64 @@ function getDb(): Database.Database {
       attempts INTEGER NOT NULL DEFAULT 0,
       used_at TEXT
     );
+    CREATE TABLE IF NOT EXISTS quiz_attempts (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      module_id TEXT NOT NULL,
+      at TEXT NOT NULL,
+      mode TEXT NOT NULL,
+      score INTEGER NOT NULL,
+      total INTEGER NOT NULL,
+      answers TEXT NOT NULL
+    );
   `);
   return db;
 }
 
 const now = () => new Date().toISOString();
+
+export type QuizAttempt = {
+  id: number;
+  module_id: string;
+  at: string;
+  mode: "exam" | "practice";
+  score: number;
+  total: number;
+  answers: { questionId: string; chosen: number | null; correct: boolean }[];
+};
+
+type QuizAttemptRow = Omit<QuizAttempt, "answers"> & { answers: string };
+
+const toAttempt = (r: QuizAttemptRow): QuizAttempt => ({ ...r, answers: JSON.parse(r.answers) });
+
+export function insertQuizAttempt(a: Omit<QuizAttempt, "id" | "at">): number {
+  const info = getDb()
+    .prepare("INSERT INTO quiz_attempts (module_id, at, mode, score, total, answers) VALUES (?, ?, ?, ?, ?, ?)")
+    .run(a.module_id, now(), a.mode, a.score, a.total, JSON.stringify(a.answers));
+  logActivity(a.mode === "exam" ? "quiz" : "quiz_practice", `${a.module_id}:${a.score}/${a.total}`);
+  return Number(info.lastInsertRowid);
+}
+
+export function getQuizAttempt(id: number): QuizAttempt | null {
+  const row = getDb().prepare("SELECT * FROM quiz_attempts WHERE id = ?").get(id) as QuizAttemptRow | undefined;
+  return row ? toAttempt(row) : null;
+}
+
+export function quizAttempts(moduleId: string): QuizAttempt[] {
+  const rows = getDb().prepare("SELECT * FROM quiz_attempts WHERE module_id = ? ORDER BY id DESC").all(moduleId) as QuizAttemptRow[];
+  return rows.map(toAttempt);
+}
+
+/** Speichert die beste Punktzahl aus einem Prüfungsdurchlauf als Quiz-Ergebnis des Moduls. */
+export function recordBestQuizScore(moduleId: string, score: number): void {
+  getDb()
+    .prepare(
+      `INSERT INTO module_progress (module_id, quiz_score, quiz_at) VALUES (?, ?, ?)
+       ON CONFLICT(module_id) DO UPDATE SET
+         quiz_score = MAX(COALESCE(module_progress.quiz_score, 0), excluded.quiz_score),
+         quiz_at = CASE WHEN excluded.quiz_score >= COALESCE(module_progress.quiz_score, -1) THEN excluded.quiz_at ELSE module_progress.quiz_at END`,
+    )
+    .run(moduleId, score, now());
+}
 
 export function doneTasks(): Map<string, string> {
   const rows = getDb().prepare("SELECT task_id, done_at FROM task_progress").all() as { task_id: string; done_at: string }[];

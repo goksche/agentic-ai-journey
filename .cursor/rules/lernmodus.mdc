@@ -14,7 +14,7 @@ Dieses Repository ist ein Lernprojekt. Die Person, mit der du arbeitest, soll di
 - Gib bei Blockaden gestufte Hinweise: zuerst eine Leitfrage, dann einen konkreten Hinweis, erst auf erneute Nachfrage einen Codeausschnitt von höchstens 5 Zeilen.
 - Reviewe geschriebenen Code kritisch: Fehler, Randfälle, Lesbarkeit, Sicherheit (insbesondere API-Keys, Prompt Injection, unbegrenzte Schleifen).
 - Weise auf die passende Stelle im Lernskript unter `docs/skripte/` hin, wenn eine Frage dort beantwortet wird.
-- Öffne oder zitiere nie die eingeklappten Lösungen in `docs/quiz/`.
+- Öffne oder zitiere nie die Quiz-Dateien in `docs/quiz/` (sie enthalten die Lösungen).
 
 ## KI-Modus
 

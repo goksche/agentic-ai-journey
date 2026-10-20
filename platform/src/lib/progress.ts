@@ -1,9 +1,8 @@
 import "server-only";
 import { allModules, isReleased, loadCurriculum, type Curriculum, type Module, type Task } from "./curriculum";
 import { doneTasks, moduleProgress, type ModuleProgress } from "./db";
+import { loadQuiz } from "./quiz";
 
-export const QUIZ_TOTAL = 15;
-export const QUIZ_PASS = 12;
 
 export type ModuleStatus = "locked" | "open" | "active" | "done";
 
@@ -14,6 +13,8 @@ export type ModuleView = Module & {
   tasksDone: number;
   tasksTotal: number;
   quizScore: number | null;
+  quizTotal: number;
+  quizPass: number;
   quizPassed: boolean;
   canComplete: boolean;
   completedAt: string | null;
@@ -35,8 +36,11 @@ export function buildModuleView(
   const p = mp.get(m.id);
   const tasksDone = m.tasks.filter((t) => done.has(t.id)).length;
   const quizScore = p?.quiz_score ?? null;
-  const needsQuiz = !m.project && !!m.quiz;
-  const quizPassed = !needsQuiz || (quizScore !== null && quizScore >= QUIZ_PASS);
+  const quiz = m.project ? null : loadQuiz(m.quiz);
+  const needsQuiz = !!quiz;
+  const quizTotal = quiz?.questions.length ?? 0;
+  const quizPass = quiz?.pass ?? 0;
+  const quizPassed = !needsQuiz || (quizScore !== null && quizScore >= quizPass);
   const completedAt = p?.completed_at ?? null;
   let status: ModuleStatus = "open";
   if (!released) status = "locked";
@@ -49,6 +53,8 @@ export function buildModuleView(
     tasksDone,
     tasksTotal: m.tasks.length,
     quizScore,
+    quizTotal,
+    quizPass,
     quizPassed,
     canComplete: released && tasksDone === m.tasks.length && quizPassed,
     completedAt,

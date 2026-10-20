@@ -153,7 +153,7 @@ function Signpost({ next }: { next: NextStep }) {
     next.kind === "task"
       ? `Aufgabe ${next.index + 1}: ${next.task.title}`
       : next.kind === "quiz"
-        ? "Quiz bearbeiten und Ergebnis eintragen"
+        ? "Quiz bestehen"
         : "Modul abschliessen";
   const time = next.kind === "task" ? formatHours(next.task.hours) : null;
 
@@ -180,9 +180,9 @@ function Signpost({ next }: { next: NextStep }) {
             Aufgabenblatt
           </Link>
         )}
-        {next.kind === "quiz" && m.quiz && (
-          <Link className="btn" href={`/doc/${m.quiz}`}>
-            Quiz öffnen
+        {next.kind === "quiz" && (
+          <Link className="btn" href={`/quiz/${m.id}`}>
+            Quiz starten
           </Link>
         )}
       </div>

@@ -4,10 +4,11 @@ import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { allModules, loadCurriculum } from "@/lib/curriculum";
-import { setModuleCompleted, setQuizScore, setTaskDone } from "@/lib/db";
+import { insertQuizAttempt, recordBestQuizScore, setModuleCompleted, setTaskDone } from "@/lib/db";
 import { loginEmail, maskEmail, sendLoginCode } from "@/lib/mail";
 import { CODE_TTL_MINUTES, discardLoginCode, issueLoginCode, verifyLoginCode } from "@/lib/otp";
-import { QUIZ_TOTAL, getModule } from "@/lib/progress";
+import { getModule } from "@/lib/progress";
+import { grade, loadQuiz } from "@/lib/quiz";
 import { SESSION_COOKIE, SESSION_DAYS, createSessionToken, isValidSession } from "@/lib/session";
 
 async function requireSession() {
@@ -30,16 +31,31 @@ export async function toggleTask(formData: FormData) {
   revalidatePath(`/modul/${moduleId}`);
 }
 
-export async function saveQuiz(formData: FormData) {
+export async function submitQuiz(formData: FormData) {
   await requireSession();
   const moduleId = String(formData.get("moduleId") ?? "");
-  const raw = String(formData.get("score") ?? "").trim();
-  if (!getModule(moduleId).module) return;
-  const score = raw === "" ? null : Number(raw);
-  if (score !== null && (!Number.isInteger(score) || score < 0 || score > QUIZ_TOTAL)) return;
-  setQuizScore(moduleId, score);
+  const mode = formData.get("mode") === "practice" ? "practice" : "exam";
+  const { module } = getModule(moduleId);
+  if (!module || !module.released) return;
+  const quiz = loadQuiz(module.quiz);
+  if (!quiz) return;
+
+  const onlyIds = mode === "practice" ? String(formData.get("onlyIds") ?? "").split(",").filter(Boolean) : undefined;
+  const chosen: Record<string, number | null> = {};
+  for (const q of quiz.questions) {
+    const raw = formData.get(`q_${q.id}`);
+    const n = raw === null ? NaN : Number(raw);
+    chosen[q.id] = Number.isInteger(n) && n >= 0 && n < q.options.length ? n : null;
+  }
+  const answers = grade(quiz, chosen, onlyIds);
+  if (answers.length === 0) return;
+  const score = answers.filter((a) => a.correct).length;
+
+  const attemptId = insertQuizAttempt({ module_id: moduleId, mode, score, total: answers.length, answers });
+  if (mode === "exam") recordBestQuizScore(moduleId, score);
   revalidatePath("/");
   revalidatePath(`/modul/${moduleId}`);
+  redirect(`/quiz/${moduleId}/ergebnis/${attemptId}`);
 }
 
 export async function completeModule(formData: FormData) {

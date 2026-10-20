@@ -6,7 +6,7 @@
 | [AUFGABEN.md](AUFGABEN.md) | Fünf Aufgaben mit Abnahmekriterien |
 | [check_setup.py](check_setup.py) | Prüfskript für die API-Zugänge |
 | [FEYNMAN.md](FEYNMAN.md) | Vorlage für die Feynman-Notiz |
-| [Quiz](../docs/quiz/1.1-quiz.md) | 15 Fragen, bestanden ab 12 |
+| Quiz | 15 Fragen, bestanden ab 12; interaktiv auf der Lernplattform (Modul 1.1 → «Quiz starten») |
 
 Von dir anzulegen: `notizen.md`, `einordnung.md`, `positionspapier.md`.
 

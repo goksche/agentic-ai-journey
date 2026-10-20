@@ -17,7 +17,7 @@ semesters:
         weeks: "1"
         skript: docs/skripte/1.1-was-ist-ein-agent.md
         aufgaben: module-1.1-induction/AUFGABEN.md
-        quiz: docs/quiz/1.1-quiz.md
+        quiz: docs/quiz/1.1-quiz.yaml
         tasks:
           - { id: "1.1-a1", title: "Umgebung und API-Zugänge einrichten", hours: 2 }
           - { id: "1.1-a2", title: "Quellen lesen und Notizen schreiben", hours: 2.5 }
@@ -29,7 +29,7 @@ semesters:
         weeks: "2–3"
         skript: docs/skripte/1.2-python.md
         aufgaben: module-1.2-python/AUFGABEN.md
-        quiz: docs/quiz/1.2-quiz.md
+        quiz: docs/quiz/1.2-quiz.yaml
         tasks:
           - { id: "1.2-a1", title: "CLI «loglens» mit Pydantic und Tests" }
           - { id: "1.2-a2", title: "Dieselbe Aufgabe mit dem Cursor-Agenten lösen und vergleichen" }
@@ -39,7 +39,7 @@ semesters:
         weeks: "4–5"
         skript: docs/skripte/1.3-foundations.md
         aufgaben: module-1.3-foundations/AUFGABEN.md
-        quiz: docs/quiz/1.3-quiz.md
+        quiz: docs/quiz/1.3-quiz.yaml
         tasks:
           - { id: "1.3-a1", title: "Drei Paper lesen und zusammenfassen" }
           - { id: "1.3-a2", title: "Notebook: Embeddings für 200 arXiv-Abstracts" }
@@ -49,7 +49,7 @@ semesters:
         weeks: "6–7"
         skript: docs/skripte/1.4-prompting.md
         aufgaben: module-1.4-prompting/AUFGABEN.md
-        quiz: docs/quiz/1.4-quiz.md
+        quiz: docs/quiz/1.4-quiz.yaml
         tasks:
           - { id: "1.4-a1", title: "Prompt-Bibliothek mit 10 Vorlagen" }
           - { id: "1.4-a2", title: "Evaluations-Harness: 30 Testfälle, 3 Modelle" }
@@ -59,7 +59,7 @@ semesters:
         weeks: "8–11"
         skript: docs/skripte/1.5-llm-internals.md
         aufgaben: module-1.5-llm-internals/AUFGABEN.md
-        quiz: docs/quiz/1.5-quiz.md
+        quiz: docs/quiz/1.5-quiz.yaml
         tasks:
           - { id: "1.5-a1", title: "Tool-Calling ohne Framework (3 Tools)" }
           - { id: "1.5-a2", title: "RAG über 50 Paper mit Retrieval-Evaluation" }

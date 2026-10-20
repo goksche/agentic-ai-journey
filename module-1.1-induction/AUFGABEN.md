@@ -49,8 +49,8 @@ Schritte:
 
 **Ziel:** Du kennst die zwei Grundlagentexte und kannst ihre Kernaussagen auf Deutsch wiedergeben.
 
-1. Anthropic: «Building effective agents».
-2. Lilian Weng: «LLM Powered Autonomous Agents».
+1. Anthropic: [«Building effective agents»](https://www.anthropic.com/engineering/building-effective-agents) (Dezember 2024, ca. 25 Minuten Lesezeit).
+2. Lilian Weng: [«LLM Powered Autonomous Agents»](https://lilianweng.github.io/posts/2023-06-23-agent/) (Juni 2023, ca. 45 Minuten, technischer).
 
 **Abnahme:**
 
@@ -120,6 +120,6 @@ Wenn alles committet ist, schreib mir «Modul 1.1 abgeben». Im Review mache ich
 
 1. Code und Setup prüfen.
 2. Einordnung und Positionspapier kritisch kommentieren und nachfragen.
-3. Das Quiz (15 Fragen) mit dir durchgehen. Bestanden ab 12 richtigen.
+3. Das Quiz löst du auf der Lernplattform (Modul 1.1 → «Quiz starten»), bestanden ab 12 von 15. Falsche Fragen kannst du dort gezielt wiederholen; im Review besprechen wir, was noch unklar ist.
 
 Danach ist Modul 1.2 freigeschaltet.
