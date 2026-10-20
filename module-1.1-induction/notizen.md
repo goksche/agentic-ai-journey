@@ -8,14 +8,14 @@ Quelle: https://www.anthropic.com/engineering/building-effective-agents
 
 ### Kernaussagen
 
-1. 
-2. 
-3. 
+1. So einfach wie möglich starten, nicht in jedem Fall ist ein autonomer Agent nötig. Ein guter Prompt, passender Kontext oder ein fester Workflow kann bereits reichen.
+2. Autonomie braucht Rückmeldung und Kontrolle, ein Agent braucht Rückmeldungen aus der Umgebung, überprüfbare Zwischenergebnisse, klare Grenzen, Abbruchbedingungen und menschliche Kontrolle bei kritischen Schritten
+3. Werkzeuge und Evaluation sind genau so wichtig wie das Modell, Werkzeuge müssen einfach und fehlerarm bedienbar sein. Ergebnisse müssen systematisch geprüft werden. Gute Tests, klare Schnittstellen und iterative Verbesserung sind zentrale Voraussetzungen für zuverlässigen Betrieb.
 
 ### Das sehe ich anders oder zweifle daran
 
-- **Aussage:** 
-- **Warum:** 
+- **Aussage:*Menschliche Kontrolle bei kritischen Schritten* 
+- **Warum:*Die Aussage ist grundsätzlich in Ordnung, aber mit der Zeit wird der Mensch betriebsblind, was bei Prüfungen nicht von Vorteil ist. Die Ergebnisse der Prüfungen sollten dokumentiert und bewertet werden* 
 
 ## Lilian Weng: «LLM Powered Autonomous Agents»
 
