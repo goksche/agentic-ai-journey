@@ -20,10 +20,10 @@ Abgabe zu Aufgabe 3. Stufen 0–5 siehe Lernskript, Abschnitt 5. Begründe jede 
 
 Mindestens zwei Systeme, bei denen die Stufe von der Ausgestaltung abhängt. Beschreibe beide Varianten.
 
-### System Nr. 
+### System Nr. 3
 
-- **Variante A:** 
-- **Variante B:** 
+- **Variante A: Wenn man beispielsweise Mail automatisch beantwortet haben will, dann ist man mindestens auf Stufe 4** 
+- **Variante B: Hier gibt es bereits Lösungen ohne LLM, daher stufe 0 auch möglich oder?** 
 
 ### System Nr. 
 
