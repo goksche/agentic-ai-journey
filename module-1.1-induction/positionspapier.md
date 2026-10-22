@@ -8,25 +8,25 @@ Ein Agent ist ein LLM mit Armen und Beinen, bedeutet, dass ein Agent ein LLM mit
 
 ## Was kein Agent ist, auch wenn es so heisst
 
-Workflows sind keine Agents. Workflows agieren nach definierten Vorgaben.
+Workflows sind keine Agents. Workflows agieren nach definierten Vorgaben. Chatbots auf LLM basis sind auch keine Agents.
 
 ## Drei Beispiele aus drei Branchen
 
 ### 1. Bauprojekt koordinieren
 Stufe: 4
-Nutzen: Koordination von Terminen, Gewerken und Abhängigkeiten
+Nutzen: Koordination von Terminen, Gewerken und Abhängigkeiten. Hier entscheidet der Agent selbst, wann welche Termine angesetzt werden.
 Fehlerart: Fehlerakkumulation
 Risiko: Fehler im Arbeitsschritt kann grossen Einfluss auf folgeschritte haben
 
 ### 2. Störungen im Stromnetz analysieren
 Stufe: 3
-Nutzen: Meldungen und Messdaten zusammenführen
+Nutzen: Meldungen und Messdaten zusammenführen. Hier entscheidet der Agent welche Daten zusammengeführt werden und gibt dann eine Empfehlung für den Mensch an.
 Fehlerart: Halluzienierte Fakten
 Risiko: Falsche Aussagen die zu empfohlenen Handlungen durch Mensch führen könnten, können zu unnötigen Ausfällen im Netz führen
 
 ### 3. Inhalte recherchieren und veröffentlichen 
 Stufe: 4
-Nutzen: Recherche, Erstellung, Prüfung und Publikation koordinieren
+Nutzen: Recherche, Erstellung, Prüfung und Publikation koordinieren. Agent entscheidet über Inhalt und die Publikation.
 Fehlerart: Halluzienierte Handlung und Fakten
 Risiko: Falsche Tatsachen oder nicht existente Quellen
 
@@ -37,7 +37,4 @@ Risiko: Falsche Tatsachen oder nicht existente Quellen
 3. Wie geht das System mit Fehlern und unerwarteten Situationen um?
 
 ## Zwei Konkrete Systeme die als Agent verkauft werden
-Builder.ai
-Global Predictions - KI Finanzberatung
-
 Beides Fälle wo keine KI eingesetzt wird
