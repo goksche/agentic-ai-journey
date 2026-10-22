@@ -7,7 +7,7 @@ Stand: 22. Oktober 2026, geprüft: Commits bis `5e4b32b`. Das ist ein Zwischenre
 | 1 – Umgebung | erledigt | angenommen |
 | 2 – Quellen | Anthropic fertig, Weng offen | nachbessern |
 | 3 – Einordnung | vollständig | 3 Einordnungen korrigieren, sonst gut |
-| 4 – Positionspapier | Entwurf, 188 Wörter | ausbauen, ein Formatfehler |
+| 4 – Positionspapier | überarbeitet (`812f3c1`) | **angenommen** am 22.10., zwei Formsachen offen |
 | 5 – Feynman, Journal | nicht begonnen | offen |
 | Quiz | für mich nicht sichtbar | Ergebnis bitte im Chat nennen |
 
@@ -189,3 +189,16 @@ Beides ist richtig, solange Text und Stufe zusammenpassen.
 - [ ] Tippfehler: «Zubindung», «Halluzienierte» (2×), «entwscheidet», «folgeschritte».
 
 Danach nehme ich Aufgabe 4 ab.
+
+## Nachtrag 22. Oktober, 23:59 – Aufgabe 4 angenommen (Commit `812f3c1`)
+
+**Inhaltlich abgenommen.** Definition, Abgrenzung, drei Beispiele mit begründeter Stufe, Fehlerart und Risiko sowie drei Prüffragen sind vollständig und stimmig. Das Stromnetz-Beispiel ist auf Stufe 4 jetzt konsistent: Der Agent wählt die Daten selbst, die Handlung bleibt beim Menschen.
+
+Was du über die Überarbeitungen gelernt hast, ist der eigentliche Kern des Moduls: Eine Stufe ergibt sich aus der Frage, **wer den nächsten Schritt bestimmt**. Genau das hast du beim Stromnetz zweimal durchdacht.
+
+**Zwei Formsachen, ohne erneutes Review:**
+
+1. **Leerzeichen nach dem Bindestrich:** `-**Stufe:**` wird nicht als Liste erkannt. Richtig ist `- **Stufe:** 4`, mit Leerzeichen. Sonst laufen die Zeilen auf der Plattform weiter zusammen.
+2. **Tippfehler:** «Zubindung» → «Anbindung», «Halluzienierte» → «Halluzinierte» (2×), «entwscheidet» → «entscheidet», «folgeschritte» → «Folgeschritte», «LLM basis» → «LLM-Basis».
+
+Danach Aufgabe 4 auf der Plattform abhaken.
