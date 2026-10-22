@@ -12,8 +12,6 @@ Workflows sind keine Agents. Workflows agieren nach definierten Vorgaben.
 
 ## Drei Beispiele aus drei Branchen
 
-Nicht aus deinem beruflichen Umfeld. Je: Stufe, Nutzen, grösstes Risiko mit Fehlerart aus Skript Abschnitt 6.
-
 ### 1. Bauprojekt koordinieren
 Stufe: 4
 Nutzen: Koordination von Terminen, Gewerken und Abhängigkeiten
@@ -24,7 +22,7 @@ Risiko: Fehler im Arbeitsschritt kann grossen Einfluss auf folgeschritte haben
 Stufe: 3
 Nutzen: Meldungen und Messdaten zusammenführen
 Fehlerart: Halluzienierte Handlung und Fakten
-Risiko: Falsche Aussagen oder Handlungen können zu unnötigen Ausfällen im Netz führen
+Risiko: Falsche Aussagen die zu Handlungen führen könnten, können zu unnötigen Ausfällen im Netz führen
 
 ### 3. Inhalte recherchieren und veröffentlichen 
 Stufe: 4
@@ -37,3 +35,9 @@ Risiko: Falsche Tatsachen oder nicht existente Quellen
 1. Wer entwscheidet über den nächsten Schritt?
 2. Kann das System eigenständig handeln und Werkzeuge nutzen?
 3. Wie geht das System mit Fehlern und unerwarteten Situationen um?
+
+## Zwei Konkrete Systeme die als Agent verkauft werden
+Builder.ai
+Global Predictions - KI Finanzberatung
+
+Beides Fälle wo keine KI eingesetzt wird
