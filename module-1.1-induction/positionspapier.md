@@ -22,7 +22,7 @@ Risiko: Fehler im Arbeitsschritt kann grossen Einfluss auf folgeschritte haben
 Stufe: 3
 Nutzen: Meldungen und Messdaten zusammenführen
 Fehlerart: Halluzienierte Handlung und Fakten
-Risiko: Falsche Aussagen die zu Handlungen führen könnten, können zu unnötigen Ausfällen im Netz führen
+Risiko: Falsche Aussagen die zu empfohlenen Handlungen durch Mensch führen könnten, können zu unnötigen Ausfällen im Netz führen
 
 ### 3. Inhalte recherchieren und veröffentlichen 
 Stufe: 4
