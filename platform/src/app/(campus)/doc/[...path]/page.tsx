@@ -18,7 +18,10 @@ export default async function DocPage({ params }: { params: Promise<{ path: stri
 
   logActivity("doc_opened", rel);
   const owner = allModules(loadCurriculum()).find(
-    (m) => [m.skript, m.aufgaben, m.quiz].includes(rel) || m.tasks.some((t) => t.files?.includes(rel)),
+    (m) =>
+      [m.skript, m.aufgaben, m.quiz].includes(rel) ||
+      m.tasks.some((t) => t.files?.includes(rel)) ||
+      (!!m.aufgaben && rel === path.posix.join(path.posix.dirname(m.aufgaben), "REVIEW.md")),
   );
   const baseDir = path.posix.dirname(rel);
 

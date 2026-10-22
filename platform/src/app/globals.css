@@ -917,3 +917,6 @@ a.module-row:hover {
 .doc-meta {
   align-items: center;
 }
+.doclinks .review-link {
+  color: var(--pine);
+}

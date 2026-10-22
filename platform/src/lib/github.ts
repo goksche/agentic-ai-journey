@@ -6,6 +6,6 @@ export const githubEditUrl = (rel: string) => `${BLOB.replace("/blob/", "/edit/"
 
 /** Dateien, die der Studierende selbst bearbeitet (keine Unterlagen der Studiengangleitung). */
 export function isStudentFile(rel: string): boolean {
-  if (/(^|\/)AUFGABEN\.md$/.test(rel)) return false;
+  if (/(^|\/)(AUFGABEN|REVIEW)\.md$/.test(rel)) return false;
   return /^(module-[^/]+|projects\/[^/]+|journal)\//.test(rel) || rel === "pyproject.toml";
 }

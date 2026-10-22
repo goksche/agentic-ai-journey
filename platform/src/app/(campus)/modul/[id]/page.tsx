@@ -14,6 +14,8 @@ export default async function ModulePage({ params }: { params: Promise<{ id: str
 
   const nextIndex = m.tasks.findIndex((t) => !m.doneMap.has(t.id));
   const openHours = m.tasks.filter((t) => !m.doneMap.has(t.id)).reduce((n, t) => n + (t.hours ?? 0), 0);
+  const reviewCandidate = m.aufgaben ? `${m.aufgaben.split("/").slice(0, -1).join("/")}/REVIEW.md` : null;
+  const reviewPath = reviewCandidate && fileExists(reviewCandidate) ? reviewCandidate : null;
   const needsQuiz = m.quizTotal > 0;
   const attempts = needsQuiz ? quizAttempts(m.id) : [];
   const examAttempts = attempts.filter((a) => a.mode === "exam");
@@ -102,6 +104,11 @@ export default async function ModulePage({ params }: { params: Promise<{ id: str
               <div className="doclinks">
                 {m.skript && <Link href={`/doc/${m.skript}`}>Lernskript</Link>}
                 {m.aufgaben && <Link href={`/doc/${m.aufgaben}`}>Aufgabenblatt</Link>}
+                {reviewPath && (
+                  <Link href={`/doc/${reviewPath}`} className="review-link">
+                    Review der Studiengangleitung
+                  </Link>
+                )}
               </div>
             </section>
 
