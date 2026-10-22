@@ -87,3 +87,26 @@ Dein Quiz-Ergebnis sehe ich nicht, es liegt in der Datenbank der Plattform. Nenn
 - [ ] `positionspapier.md`: Kommentarzeichen entfernen, Definition schärfen, Vertragsprüfung ersetzen, Stromnetz anpassen, Fliesstext
 - [ ] Feynman-Notiz und Journal
 - [ ] Danach: «Modul 1.1 abgeben» schreiben
+
+---
+
+## Nachtrag 22. Oktober, 20:05 – Aufgabe 4 (Commit `da1e9b1`)
+
+**Erledigt:** Die Kommentarzeichen sind weg, Definition und Abgrenzung sind jetzt sichtbar.
+
+**Neu entstanden:** Mit den Kommentarzeichen ist auch mein Hinweis «Nicht aus deinem beruflichen Umfeld. Je: Stufe, Nutzen, …» sichtbar geworden. Diese Zeile bitte löschen, sie gehört nicht ins Papier.
+
+**Noch offen**, inhaltlich unverändert seit dem Zwischenreview:
+
+- [ ] **Definition:** Ergänzen, wer über den nächsten Schritt entscheidet. So wie sie jetzt steht, passt sie auch auf einen Workflow mit Tool-Aufruf und widerspricht damit deiner eigenen Abgrenzung. Tippfehler: «zubinmdung».
+- [ ] **Abgrenzung:** Mindestens zwei *konkrete* Produkte oder Systeme, die als Agent verkauft werden, aber keine sind, je mit einem Satz Begründung.
+- [ ] **Beispiel 3 Vertragsprüfung** durch eine eigene Branche ersetzen.
+- [ ] **Beispiel 2 Stromnetz:** Stufe 3 ist nach deiner Definition kein Agent. Ausserdem bricht der Satz ab («… kann zu»).
+- [ ] **Fehlerarten** mit Namen und Abschnitt statt «F1/F2», z. B. «Fehlerakkumulation (6.1)».
+- [ ] **Fliesstext statt Stichworte:** Die Beispiele stehen als Überschriften mit Kommas. Für eine Entscheiderin braucht es je 3–4 ganze Sätze. Aktuell 153 Wörter, Ziel 400–500.
+
+**Vorschlag für den Aufbau eines Beispiels:**
+
+> **Logistik – Ausnahmen im Paketversand (Stufe 4).** Der Agent prüft jede Lieferung, die hängen bleibt, fragt beim Spediteur den Status ab, schlägt eine Lösung vor (neu zustellen, umleiten, Kunde informieren) und führt sie nach Freigabe aus. *Nutzen:* Ausnahmen werden in Minuten statt Tagen bearbeitet. *Grösstes Risiko:* Prompt Injection (6.4), weil der Agent Freitext von Kunden und Spediteuren liest, der Anweisungen enthalten kann.
+
+Dieses Beispiel ist nur zur Orientierung. Logistik bitte nicht übernehmen, sonst bleibt nur eine eigene Branche übrig.
