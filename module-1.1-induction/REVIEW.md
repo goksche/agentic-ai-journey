@@ -153,3 +153,18 @@ Die Struktur mit Feldern statt Fliesstext akzeptiere ich, wenn der Satz zum Agen
 Danach ist Aufgabe 4 aus meiner Sicht abnahmereif.
 
 Quellen: [Harvard Law School Forum: Decoding the SEC’s First «AI-Washing» Enforcement Actions](https://corpgov.law.harvard.edu/2024/04/18/decoding-the-secs-first-ai-washing-enforcement-actions) · [Beam AI: Builder.ai – From Unicorn to Insolvency](https://beam.ai/agentic-insights/builder-ai-from-unicorn-to-insolvency-history-collapse-and-the-low-code-landscape)
+
+## Nachtrag 22. Oktober, 23:50 – Aufgabe 4 (Commit `4c96103`)
+
+**Stromnetz, Stufe 3: jetzt schlüssig begründet.** Das System führt Daten zusammen und empfiehlt, die Handlung bleibt beim Menschen. Damit ist es zu Recht ein Workflow und kein Agent. Ich akzeptiere das, mit einer Bedingung: Sag es im Papier ausdrücklich, z. B. «Hier genügt bewusst ein Workflow, weil ein Fehlentscheid im Netz teuer ist und der Mensch entscheiden soll.» Dann ist das Beispiel sogar ein Pluspunkt: Es zeigt der Entscheiderin, dass nicht alles ein Agent sein muss (Skript, Abschnitt 7).
+
+Zwei kleine Anpassungen dazu:
+- **Fehlerart:** «Halluzinierte Fakten» passt, «Handlung» nicht mehr, denn das System handelt ja gerade nicht.
+- **Dein eigener Gedanke aus Aufgabe 2 passt hier perfekt:** Wenn der Mensch nur noch die Empfehlung abnickt, ist die Kontrolle wirkungslos (Automation Bias). Ein Halbsatz dazu macht das Risiko vollständig.
+
+**Unverändert offen** (siehe Nachträge 2 und 3):
+
+- [ ] Pro Agenten-Beispiel (Bau, Medien) ein Satz, was der Agent selbst entscheidet
+- [ ] Felder als Liste (`- **Stufe:** 4`), sonst laufen sie auf der Plattform zu einem Absatz zusammen
+- [ ] Builder.ai und Global Predictions in den Abschnitt «Was kein Agent ist» verschieben, je ein Satz; «keine KI» nur bei Global Predictions, bei Builder.ai «stark übertrieben»
+- [ ] Tippfehler: «Zubindung», «Halluzienierte» (2×), «entwscheidet», «folgeschritte»
