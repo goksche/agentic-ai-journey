@@ -110,3 +110,24 @@ Dein Quiz-Ergebnis sehe ich nicht, es liegt in der Datenbank der Plattform. Nenn
 > **Logistik – Ausnahmen im Paketversand (Stufe 4).** Der Agent prüft jede Lieferung, die hängen bleibt, fragt beim Spediteur den Status ab, schlägt eine Lösung vor (neu zustellen, umleiten, Kunde informieren) und führt sie nach Freigabe aus. *Nutzen:* Ausnahmen werden in Minuten statt Tagen bearbeitet. *Grösstes Risiko:* Prompt Injection (6.4), weil der Agent Freitext von Kunden und Spediteuren liest, der Anweisungen enthalten kann.
 
 Dieses Beispiel ist nur zur Orientierung. Logistik bitte nicht übernehmen, sonst bleibt nur eine eigene Branche übrig.
+
+## Nachtrag 22. Oktober, 20:15 – Aufgabe 4 (Commit `751e268`)
+
+Deutlich besser. Die Definition sitzt jetzt, und das neue dritte Beispiel passt.
+
+| Punkt | Stand |
+| --- | --- |
+| Definition: wer entscheidet | ✓ erledigt. «Ein Agent entscheidet selbst über den nächsten Schritt» ist genau der Kern. |
+| Vertragsprüfung ersetzt | ✓ erledigt. Medien/Publikation mit erfundenen Quellen als Risiko ist ein treffendes Beispiel. |
+| Fehlerarten mit Namen | ✓ erledigt |
+| Abgrenzung: zwei konkrete Beispiele | offen. Steht noch wie im ersten Entwurf. |
+| Stromnetz, Stufe 3 | offen. Ein Workflow ist nach deiner eigenen Definition kein Agent. Entweder Stufe 4 mit Begründung (der Agent entscheidet selbst, welche Messdaten er als Nächstes abfragt) oder ein anderes Beispiel. |
+| Hinweiszeile «Nicht aus deinem beruflichen Umfeld …» | offen, bitte löschen |
+
+**Neu aufgefallen:**
+
+- **Zeilenumbrüche:** Die Zeilen «Stufe / Nutzen / Fehlerart / Risiko» laufen auf der Plattform in einen einzigen Absatz zusammen, weil Markdown einfache Zeilenumbrüche ignoriert. Mach daraus eine Liste (`- **Stufe:** 4`) oder setz Leerzeilen dazwischen.
+- **Was tut der Agent selbst?** «Nutzen» beschreibt das Ergebnis, nicht das Agentenverhalten. Ergänze pro Beispiel einen Satz, *was der Agent selbst entscheidet*. Genau das unterscheidet Stufe 4 von Stufe 3, und daran erkennt die Entscheiderin, dass es ein Agent ist.
+- **Tippfehler:** «Halluzienierte» → «Halluzinierte», «entwscheidet» → «entscheidet», «folgeschritte» → «Folgeschritte».
+
+Die Struktur mit Feldern statt Fliesstext akzeptiere ich, wenn der Satz zum Agentenverhalten dazukommt.
