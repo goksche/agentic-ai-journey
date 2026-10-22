@@ -168,3 +168,24 @@ Zwei kleine Anpassungen dazu:
 - [ ] Felder als Liste (`- **Stufe:** 4`), sonst laufen sie auf der Plattform zu einem Absatz zusammen
 - [ ] Builder.ai und Global Predictions in den Abschnitt «Was kein Agent ist» verschieben, je ein Satz; «keine KI» nur bei Global Predictions, bei Builder.ai «stark übertrieben»
 - [ ] Tippfehler: «Zubindung», «Halluzienierte» (2×), «entwscheidet», «folgeschritte»
+
+## Nachtrag 22. Oktober, 23:55 – Aufgabe 4 (Commits `cf7ddff`, `12f9c47`)
+
+**Erledigt:**
+- ✓ Bau und Medien: Der Satz, was der Agent selbst entscheidet, ist da. Genau das macht die Stufe 4 nachvollziehbar.
+- ✓ Abgrenzung: «Chatbots auf LLM-Basis» ist der typische Fall von Agent-Washing. Zusammen mit den Workflows sind das zwei Beispiele, das reicht.
+- ✓ Fehlerart beim Stromnetz korrigiert.
+
+**Neu entstanden: ein Widerspruch beim Stromnetz.** Jetzt steht dort «Hier entscheidet **der Agent**, welche Daten zusammengeführt werden» bei Stufe 3. Entscheidet das Modell selbst, welche Daten es holt, ist das Stufe 4: ein Agent, dessen Leitplanke ist, dass der Mensch die Handlung freigibt. Entscheide dich:
+- **Stufe 3:** «Das System führt nach festem Ablauf immer dieselben Meldungen und Messdaten zusammen und gibt eine Empfehlung ab.» Dann nicht «Agent» schreiben.
+- **Stufe 4:** Text so lassen, Stufe auf 4 ändern und ergänzen: «Die Handlung im Netz bleibt beim Menschen.»
+
+Beides ist richtig, solange Text und Stufe zusammenpassen.
+
+**Noch offen, alles klein:**
+
+- [ ] Überschrift «Zwei konkrete Systeme …» und der Satz «Beides Fälle wo keine KI eingesetzt wird» stehen jetzt ohne Inhalt da. Entweder löschen, oder Builder.ai und Global Predictions als Extremfälle in die Abgrenzung zurückholen.
+- [ ] Felder als Liste (`- **Stufe:** 4`): Auf der Plattform laufen Stufe, Nutzen, Fehlerart und Risiko noch in einen Absatz zusammen.
+- [ ] Tippfehler: «Zubindung», «Halluzienierte» (2×), «entwscheidet», «folgeschritte».
+
+Danach nehme ich Aufgabe 4 ab.
