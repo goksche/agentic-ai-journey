@@ -131,3 +131,25 @@ Deutlich besser. Die Definition sitzt jetzt, und das neue dritte Beispiel passt.
 - **Tippfehler:** «Halluzienierte» → «Halluzinierte», «entwscheidet» → «entscheidet», «folgeschritte» → «Folgeschritte».
 
 Die Struktur mit Feldern statt Fliesstext akzeptiere ich, wenn der Satz zum Agentenverhalten dazukommt.
+
+## Nachtrag 22. Oktober, 20:25 – Aufgabe 4 (Commit `59513b2`)
+
+**Neu: Builder.ai und Global Predictions.** Gute Recherche, das sind echte, dokumentierte Fälle. Zwei Präzisierungen machen den Abschnitt belastbar:
+
+1. **Das ist AI-Washing, nicht ganz Agent-Washing.** Beide Firmen haben KI behauptet, wo kaum oder keine war. Der häufigere Fall, vor dem dein Papier warnen soll, ist subtiler: Es *ist* ein Sprachmodell drin, aber das Produkt ist nur ein Chatbot oder ein fester Workflow und heisst trotzdem «Agent». Behalte deine zwei Fälle als Extremform und ergänze **einen Satz zum typischen Fall**.
+2. **Fakten genau formulieren.** «Beides Fälle, wo keine KI eingesetzt wird» stimmt so nicht ganz:
+   - **Global Predictions:** Die US-Börsenaufsicht SEC hat am 18. März 2024 festgestellt, dass die Firma sich als «first regulated AI financial advisor» bezeichnete und mit «KI-gestützten Prognosen» warb, die es gar nicht gab. Busse: 175 000 USD. Hier stimmt «keine KI».
+   - **Builder.ai:** Vermarktet wurde die KI-Assistentin «Natasha». Berichte seit 2019 werfen der Firma vor, dass ein Grossteil der Entwicklungsarbeit manuell von Programmierern erledigt wurde. Die Insolvenz im Mai 2025 hatte vor allem mit überhöhten Umsatzzahlen zu tun. Korrekt ist: «KI-Fähigkeiten stark übertrieben», nicht «keine KI».
+
+**Platzierung:** Die beiden Fälle gehören in den Abschnitt «Was kein Agent ist, auch wenn es so heisst», nicht als eigener Abschnitt ans Ende. Ein Satz pro Fall genügt. Stark wäre noch: Welche deiner drei Prüffragen hätte den Fall entlarvt?
+
+**Weiterhin offen:**
+
+- [ ] Stromnetz: Stufe 3 → Stufe 4 begründen oder Beispiel ersetzen
+- [ ] Pro Beispiel ein Satz, was der Agent selbst entscheidet
+- [ ] Felder als Liste (`- **Stufe:** 4`), sonst laufen sie zu einem Absatz zusammen
+- [ ] Tippfehler: «Zubindung» → «Anbindung», «Halluzienierte», «entwscheidet», «folgeschritte»
+
+Danach ist Aufgabe 4 aus meiner Sicht abnahmereif.
+
+Quellen: [Harvard Law School Forum: Decoding the SEC’s First «AI-Washing» Enforcement Actions](https://corpgov.law.harvard.edu/2024/04/18/decoding-the-secs-first-ai-washing-enforcement-actions) · [Beam AI: Builder.ai – From Unicorn to Insolvency](https://beam.ai/agentic-insights/builder-ai-from-unicorn-to-insolvency-history-collapse-and-the-low-code-landscape)
