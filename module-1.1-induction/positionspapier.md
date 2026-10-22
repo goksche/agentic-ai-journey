@@ -19,7 +19,7 @@ Fehlerart: Fehlerakkumulation
 Risiko: Fehler im Arbeitsschritt kann grossen Einfluss auf folgeschritte haben
 
 ### 2. Störungen im Stromnetz analysieren
-Stufe: 3
+Stufe: 4
 Nutzen: Meldungen und Messdaten zusammenführen. Hier entscheidet der Agent welche Daten zusammengeführt werden und gibt dann eine Empfehlung für den Mensch an.
 Fehlerart: Halluzienierte Fakten
 Risiko: Falsche Aussagen die zu empfohlenen Handlungen durch Mensch führen könnten, können zu unnötigen Ausfällen im Netz führen
