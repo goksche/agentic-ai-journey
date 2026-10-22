@@ -13,7 +13,7 @@ Abgabe zu Aufgabe 3. Stufen 0–5 siehe Lernskript, Abschnitt 5. Begründe jede 
 | 7 | Sprachassistent, der den Wecker stellt | 0 | Einmaliger Befehl |
 | 8 | Nachts selbständig Fehler suchen, fixen, testen, Pull Request eröffnen | 4 | Hier hat der Agent einen Auftrag und klare Leitplanken, je nach Fehler muss er entsprechende Tools aufsuchen und das Problem fixen |
 | 9 | Reiseplaner mit Varianten, Hotelsuche und Buchung nach Bestätigung | 4 | Der Agent bucht je nach Anbieter die Reise selbst |
-| 10 | Schachprogramm wie Stockfish | 5 | Hier muss der Agent autonom agieren können, je nach Spielsituation |
+| 10 | Schachprogramm wie Stockfish | 2 | Der Agent analysiert und schlägt die nächsten Schritte vor |
 | 11 | Agent-Modus von Cursor | 5 | Dieser Agent ist autonom und sucht sich seinen Weg zur Lösung selber, die Berechtigung wird jeweils während der Arbeit erfragt |
 
 ## «Hängt davon ab»
@@ -25,10 +25,10 @@ Mindestens zwei Systeme, bei denen die Stufe von der Ausgestaltung abhängt. Bes
 - **Variante A: Wenn man beispielsweise Mail automatisch beantwortet haben will, dann ist man mindestens auf Stufe 4** 
 - **Variante B: Hier gibt es bereits Lösungen ohne LLM, daher stufe 0 auch möglich oder?** 
 
-### System Nr. 
+### System Nr. 10
 
-- **Variante A:** 
-- **Variante B:** 
+- **Variante A:Eine einfache Logik kann den Workflow oder den Agenten ersetzen** 
+- **Variante B:Ein völlig autonomer Agent bestimmt im vorhinein seine Spielweise, analysiert die Spielzüge des Gegners und macht selbstständig die Spielzüge ** 
 
 ## Nr. 10: Was sagt Stockfish über unsere Definition aus?
-
+Stockfish ist kein KI basierter Dienst und funktioniert auch ohne KI sehr gut. Das Beispiel zeigt, dass nicht jede Aufgabe mit AI gelöst werden muss. Mit einer klaren Logik in einem klar abgegrenztem Bereich (Regel, Schachbrett, usw..) kann eine vordefinierte Logik günstiger und gleichgut sein wie ein Workflow oder Agent.
