@@ -4,7 +4,7 @@ Abgabe zu Aufgabe 4. Höchstens 600 Wörter. Zielgruppe: eine fachkundige, aber 
 
 ## Meine Definition
 
-Ein Agent ist ein LLM mit Armen und Beinen, bedeutet, dass ein Agent ein LLM mit zubinmdung zu Tools ist und somit etwas machen kann anstatt nur antworten.
+Ein Agent ist ein LLM mit Armen und Beinen, bedeutet, dass ein Agent ein LLM mit Zubindung zu Tools ist und somit etwas machen kann anstatt nur antworten. Ein Agent entscheidet selbst über den nächsten Schritt.
 
 ## Was kein Agent ist, auch wenn es so heisst
 
@@ -14,11 +14,23 @@ Workflows sind keine Agents. Workflows agieren nach definierten Vorgaben.
 
 Nicht aus deinem beruflichen Umfeld. Je: Stufe, Nutzen, grösstes Risiko mit Fehlerart aus Skript Abschnitt 6.
 
-### 1. Bauprojekt koordinieren, 4, Termine, Gewerke Abhängigkeiten koordinieren, F1, Fehler im Arbeitsschritt kann grossen Einfluss auf folgeschritte haben 
+### 1. Bauprojekt koordinieren
+Stufe: 4
+Nutzen: Koordination von Terminen, Gewerken und Abhängigkeiten
+Fehlerart: Fehlerakkumulation
+Risiko: Fehler im Arbeitsschritt kann grossen Einfluss auf folgeschritte haben
 
-### 2. Störungen im Stromnetz analysieren, 3, Meldungen und Messdaten zusammenführen, F2, Falsche Interpretation technischer Messwerte kann zu 
+### 2. Störungen im Stromnetz analysieren
+Stufe: 3
+Nutzen: Meldungen und Messdaten zusammenführen
+Fehlerart: Halluzienierte Handlung und Fakten
+Risiko: Falsche Aussagen oder Handlungen können zu unnötigen Ausfällen im Netz führen
 
-### 3. Vertragsprüfung, 3, Klauseln, Abweichungen und fehlende Angaben markieren, F2, Falsche Rechtsbehauptungen oder übersehene Klauseln sind das grösste Risiko
+### 3. Inhalte recherchieren und veröffentlichen 
+Stufe: 4
+Nutzen: Recherche, Erstellung, Prüfung und Publikation koordinieren
+Fehlerart: Halluzienierte Handlung und Fakten
+Risiko: Falsche Tatsachen oder nicht existente Quellen
 
 ## Drei Prüffragen gegen Agent-Washing
 
