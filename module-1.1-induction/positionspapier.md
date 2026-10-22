@@ -4,15 +4,15 @@ Abgabe zu Aufgabe 4. Höchstens 600 Wörter. Zielgruppe: eine fachkundige, aber 
 
 ## Meine Definition
 
-<!-- Ein Agent ist ein LLM mit Armen und Beinen, bedeutet, dass ein Agent ein LLM mit zubinmdung zu Tools ist und somit etwas machen kann anstatt nur antworten. -->
+Ein Agent ist ein LLM mit Armen und Beinen, bedeutet, dass ein Agent ein LLM mit zubinmdung zu Tools ist und somit etwas machen kann anstatt nur antworten.
 
 ## Was kein Agent ist, auch wenn es so heisst
 
-<!-- Workflows sind keine Agents. Workflows agieren nach definierten Vorgaben. -->
+Workflows sind keine Agents. Workflows agieren nach definierten Vorgaben.
 
 ## Drei Beispiele aus drei Branchen
 
-<!-- Nicht aus deinem beruflichen Umfeld. Je: Stufe, Nutzen, grösstes Risiko mit Fehlerart aus Skript Abschnitt 6. -->
+Nicht aus deinem beruflichen Umfeld. Je: Stufe, Nutzen, grösstes Risiko mit Fehlerart aus Skript Abschnitt 6.
 
 ### 1. Bauprojekt koordinieren, 4, Termine, Gewerke Abhängigkeiten koordinieren, F1, Fehler im Arbeitsschritt kann grossen Einfluss auf folgeschritte haben 
 
