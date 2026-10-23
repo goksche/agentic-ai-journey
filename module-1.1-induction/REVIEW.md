@@ -202,3 +202,24 @@ Was du über die Überarbeitungen gelernt hast, ist der eigentliche Kern des Mod
 2. **Tippfehler:** «Zubindung» → «Anbindung», «Halluzienierte» → «Halluzinierte» (2×), «entwscheidet» → «entscheidet», «folgeschritte» → «Folgeschritte», «LLM basis» → «LLM-Basis».
 
 Danach Aufgabe 4 auf der Plattform abhaken.
+
+## Nachtrag 23. Oktober – Feynman-Notiz, Zwischenstand (Commit `17bb778`)
+
+**Was schon gut ist:** Der Abschnitt «Was ist ein KI-Agent?» trifft den Kern: analysieren, zerlegen, planen, umsetzen, prüfen, und dabei selbst über den nächsten Schritt entscheiden. Das ist die Schleife aus dem Skript, in eigenen Worten.
+
+**Der Feynman-Test ist noch nicht bestanden**, aus drei Gründen:
+
+1. **Fachbegriffe ohne Erklärung.** «LLM», «Tools», «Workflow», «Leitplanken» und «Stufen» würde eine kluge Person ohne KI-Hintergrund nicht verstehen. Feynman heisst: jeden Begriff entweder weglassen oder in Alltagssprache übersetzen, z. B. «ein Sprachmodell wie ChatGPT, das Texte schreiben, aber selbst nichts tun kann».
+2. **Drei inhaltliche Ungenauigkeiten im Einleitungsabsatz:**
+   - *«Es gibt 5 Stufen von Agenten»:* Die Stufenleiter ordnet **KI-Systeme** ein, nicht Agenten. Stufen 0 bis 3 sind gerade keine Agenten. Ausserdem ist sie unser Denkmodell aus dem Kurs, kein allgemeiner Standard.
+   - *«Agenten sind autonome Systeme»:* Zu absolut. Die meisten sinnvollen Agenten arbeiten auf Stufe 4, also mit Freigaben durch Menschen. «Selbständig innerhalb von Grenzen» trifft es besser.
+   - *«Workflows können die Zusammenarbeit von mehreren Agenten sein»:* Technisch möglich, aber für Laien verwirrend, weil es die Unterscheidung verwischt, die du zwei Sätze vorher aufbaust. Weglassen, oder genau das unter «Wo ich ins Stocken geraten bin» notieren.
+3. **Struktur:** Der Einleitungsabsatz steht ausserhalb der Vorlage und wiederholt den ersten Abschnitt. Drei Abschnitte sind noch leer, darunter «Wo ich ins Stocken geraten bin», der wertvollste Teil der Übung.
+
+**Hinweise für die leeren Abschnitte, ohne Lösung:**
+
+- *Vergleich aus dem Alltag:* Denk an eine Situation, in der jemand ein **Ziel** bekommt statt einer Schrittliste und unterwegs selbst entscheiden muss. Und an das Gegenstück, in dem jemand nur eine feste Anleitung abarbeitet. Der Unterschied zwischen beiden ist dein Vergleich.
+- *Was ein Agent nicht ist:* Du hast im Positionspapier schon zwei gute Antworten. Erklär sie hier so, dass deine Grossmutter sie versteht.
+- *Ins Stocken geraten:* Ehrlich notieren, wo du nachdenken musstest. Kandidaten aus deinen bisherigen Abgaben: Stufe 3 oder 4, und ob ein System, das nur empfiehlt, ein Agent ist.
+
+**Tippfehler:** «gewährkleistet», «Anbinung», «ermessen» → «Ermessen», «auftrag» → «Auftrag», «Vordefinierte» → «vordefinierte».
