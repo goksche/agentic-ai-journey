@@ -23,14 +23,14 @@ Quelle: https://lilianweng.github.io/posts/2023-06-23-agent/
 
 ### Kernaussagen
 
-1. 
-2. 
-3. 
+1. LLM wir erst durch die Kombination mehrerer Fähigkeiten zum Agenten: Planung, Gedächtnis und Werkzeugnutzung bilden die Grundlage für autonome Agenten.
+2. Autonomie durch iterative Rückkopplung: Ergebnisse müssen vom Agenten beobachett, bewertet und die nächsten Schritte daran ausgerichtet werden.
+3. Grösste Herausforderung ist Zuverlässigkeit: Langfristige Planung, begrenztes Gedächtnis und fehleranfällige Schnittstellen schränken autonome Systeme ein. 
 
 ### Das sehe ich anders oder zweifle daran
 
-- **Aussage:** 
-- **Warum:** 
+- Aussage: Der Agent soll möglichst selbstständig arbeiten, Entscheidungen treffen und seine Ziele verfolgen. Widerspruch, das ChemCrow Beispiel zeigt, dass sogar die Selbsteinschätzung eines LLMs unzureichend sein kann.  
+- Warum: Wieviel Entscheidungsfreiheit darf ein Agent haben, wenn er selbst seine Fehler nicht identifiziert?
 
 ## Zitate und Rohnotizen
 
