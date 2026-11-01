@@ -223,3 +223,26 @@ Danach Aufgabe 4 auf der Plattform abhaken.
 - *Ins Stocken geraten:* Ehrlich notieren, wo du nachdenken musstest. Kandidaten aus deinen bisherigen Abgaben: Stufe 3 oder 4, und ob ein System, das nur empfiehlt, ein Agent ist.
 
 **Tippfehler:** «gewährkleistet», «Anbinung», «ermessen» → «Ermessen», «auftrag» → «Auftrag», «Vordefinierte» → «vordefinierte».
+
+## Nachtrag 1. November – Feynman-Notiz (Commit `9df7961`)
+
+**«Wo ich ins Stocken geraten bin» ist der beste Teil der Notiz.** Genau dafür ist die Übung da. Wer die Unterschiede kennt, sie aber nicht sauber in Worte fassen kann, hat sie noch nicht ganz im Griff. Ehrlich festgehalten, gut.
+
+**Zur Hilfe bei deiner Lücke, ohne die Aufgabe zu lösen:** Die drei Begriffe liegen nicht auf derselben Ebene.
+
+| Begriff | Was es ist |
+| --- | --- |
+| **LLM** | ein **Baustein**: das Sprachmodell, das Text versteht und erzeugt. Allein kann es nichts tun. |
+| **Workflow** | eine **Bauweise**: Ein Mensch hat den Ablauf vorher festgelegt, das LLM füllt nur einzelne Schritte. |
+| **Agent** | eine andere **Bauweise**: Das LLM bekommt ein Ziel und Werkzeuge und legt den Ablauf selbst fest. |
+
+Ein Workflow und ein Agent *enthalten* also beide ein LLM. Sie unterscheiden sich darin, **wer den Ablauf bestimmt**. Mit dieser Unterscheidung löst sich dein Wortwahl-Problem.
+
+**Daran gemessen ist «Was ein Agent nicht ist» noch ungenau:** «Workflows sind LLMs mit klaren Aufgaben und Entscheidungsfindungen». Ein Workflow *ist* kein LLM, er *nutzt* eines. Und gerade die Entscheidungen trifft im Workflow nicht das LLM, sie sind vorher festgelegt. Formulier den Satz mit der Tabelle oben neu, in Alltagssprache.
+
+**Weiterhin offen** (siehe Nachtrag vom 23. Oktober):
+
+- [ ] Vergleich aus dem Alltag (noch leer)
+- [ ] Einleitungsabsatz: «5 Stufen von Agenten», «Agenten sind autonome Systeme», «Workflows können die Zusammenarbeit mehrerer Agenten sein». Korrigieren oder den Absatz streichen. Er steht ausserhalb der Vorlage und wiederholt den ersten Abschnitt.
+- [ ] Fachbegriffe für Laien erklären oder ersetzen: LLM, Tools, Leitplanken
+- [ ] Tippfehler: «gewährkleistet», «Anbinung», «ermessen», «auftrag», «Vordefinierte», «aufgaben»
