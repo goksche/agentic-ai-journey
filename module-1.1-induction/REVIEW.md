@@ -246,3 +246,29 @@ Ein Workflow und ein Agent *enthalten* also beide ein LLM. Sie unterscheiden sic
 - [ ] Einleitungsabsatz: «5 Stufen von Agenten», «Agenten sind autonome Systeme», «Workflows können die Zusammenarbeit mehrerer Agenten sein». Korrigieren oder den Absatz streichen. Er steht ausserhalb der Vorlage und wiederholt den ersten Abschnitt.
 - [ ] Fachbegriffe für Laien erklären oder ersetzen: LLM, Tools, Leitplanken
 - [ ] Tippfehler: «gewährkleistet», «Anbinung», «ermessen», «auftrag», «Vordefinierte», «aufgaben»
+
+---
+
+# Abschlussprüfung 1. November – noch nicht bestanden (Stand `a1c7af3`)
+
+Aufgaben 1 und 4 sind angenommen. Für den Abschluss fehlen noch diese Punkte. Der Aufwand liegt bei etwa 2 Stunden.
+
+| Aufgabe | Was fehlt | Aufwand |
+| --- | --- | --- |
+| 2 – Quellen | Drei Kernaussagen zu **Lilian Weng** und eine Aussage, der du widersprichst. Die Felder sind noch leer. Deine Rohnotizen zu Planung und Gedächtnis sind eine gute Grundlage. | 45 min |
+| 3 – Einordnung | Noch keine der Korrekturen aus dem Zwischenreview vom 22. Oktober ist umgesetzt: **Nr. 7** Wecker (Stufe 2, er handelt), **Nr. 11** Cursor (Stufe 4, deine eigene Begründung mit den Rückfragen), **Nr. 10** Stockfish (ausserhalb der Leiter) und der Satz «Stockfish ist kein KI-basierter Dienst» (Stockfish *ist* KI, nur kein Sprachmodell). | 20 min |
+| 5 – Feynman | siehe unten | 30 min |
+| 5 – Journal | `journal/2026-43.md` ist leer. Drei Zeilen genügen: was erledigt ist, was schwieriger war als gedacht, Ziel für nächste Woche. | 10 min |
+| Quiz | Für mich nicht sichtbar. Bestanden ab 12 von 15. Ergebnis bitte im Chat nennen. | 15 min |
+
+## Feynman-Notiz: Mindestanforderung für den Abschluss
+
+Die Notiz hat ihren Hauptzweck erfüllt: Sie hat deine Lücke (Wortwahl LLM, Workflow, Agent) sichtbar gemacht. Für die Abnahme reichen deshalb drei Punkte:
+
+1. **Einleitungsabsatz löschen.** Er steht ausserhalb der Vorlage, wiederholt den ersten Abschnitt und enthält die drei Ungenauigkeiten. Streichen ist hier die beste Korrektur.
+2. **«Vergleich aus dem Alltag» ist noch kein Alltagsvergleich.** Cursor und Claude Desktop sind Beispiele aus der Technik, und der Satz zu den Chatbots gehört unter «Was ein Agent nicht ist». Gemeint ist ein Bild aus dem Leben ohne Computer, das deine Grossmutter versteht: jemand, der ein **Ziel** bekommt und unterwegs selbst entscheidet, im Gegensatz zu jemandem, der eine **feste Anleitung** abarbeitet. Zwei bis drei Sätze.
+3. **«Was ein Agent nicht ist» korrigieren** mit der Tabelle aus dem Nachtrag vom 1. November: Ein Workflow *nutzt* ein Sprachmodell, die Reihenfolge der Schritte ist aber vorher festgelegt. Ein Chatbot antwortet nur und handelt nicht. Den Chatbot-Satz aus dem Alltagsabschnitt hierher verschieben.
+
+## Danach
+
+Schreib «Modul 1.1 abgeben». Sind die Punkte erfüllt, gebe ich das Modul frei. Dann hakst du alle Aufgaben auf der Plattform ab und schliesst das Modul dort ab.
