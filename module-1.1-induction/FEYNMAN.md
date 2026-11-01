@@ -12,9 +12,9 @@ Ein KI Agent ist ein LLM mit Anbinung an Tools. Der Agent kann im Vergleich zu L
 
 ## Was ein Agent nicht ist
 
-
+Ein Workflow ist kein Agent, Workflows sind LLMs mit klaren aufgaben und Entscheidungsfindungen.
 
 ## Wo ich beim Erklären ins Stocken geraten bin
 
-<!-- Genau hier liegen die Lücken. Diese Stellen im Skript nochmals lesen. -->
+Was ein Agent nicht ist. Mir fällt es schwer in der Wortwahl zwischen Agents und LLMs zu entscheiden, obwohl ich genau weiss was die Unterschiede sind. 
 
