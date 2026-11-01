@@ -20,7 +20,7 @@ Studiert wird über die Lernplattform **Agentic AI Campus** in [`platform/`](pla
 
 | Modul | Status | Quiz | Abgeschlossen am |
 | --- | --- | --- | --- |
-| 1.1 Program Induction | in Arbeit | – | |
+| 1.1 Program Induction | abgeschlossen | 12/15 | 1. November 2026 |
 | 1.2 Python-Refresher | offen | – | |
 | 1.3 Foundations | offen | – | |
 | 1.4 GenAI-Stack & Prompting | offen | – | |

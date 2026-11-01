@@ -8,7 +8,7 @@ Stand: 22. Oktober 2026, geprüft: Commits bis `5e4b32b`. Das ist ein Zwischenre
 | 2 – Quellen | vollständig (`6b91776`) | **angenommen** am 1.11. |
 | 3 – Einordnung | korrigiert (`357f957`) | **angenommen** am 1.11., ein Satz offen |
 | 4 – Positionspapier | überarbeitet (`812f3c1`) | **angenommen** am 22.10., zwei Formsachen offen |
-| 5 – Feynman, Journal | nicht begonnen | offen |
+| 5 – Feynman, Journal | vollständig (`6df871c`, `02486a9`) | **angenommen** am 1.11. |
 | Quiz | 12 von 15 | **bestanden** |
 
 Was insgesamt auffällt: Du denkst über die Vorgaben hinaus (Betriebsblindheit bei Freigaben, «braucht es dafür überhaupt KI?»). Genau diese kritische Haltung macht später gute Agentensysteme aus. Schwächer ist bisher die **saubere Anwendung der drei Einordnungsfragen**. Darauf liegt der Fokus der Korrekturen.
@@ -298,3 +298,22 @@ Sind diese vier Punkte erledigt, ist Modul 1.1 bestanden. Ich prüfe beim nächs
 - [ ] **Einordnung:** Der Stockfish-Satz «kein KI-basierter Dienst» steht noch unverändert drin.
 
 Danach ist Modul 1.1 bestanden.
+
+---
+
+# Ergebnis: Modul 1.1 bestanden – 1. November 2026
+
+Alle fünf Aufgaben sind angenommen, das Quiz ist mit 12 von 15 bestanden.
+
+**Journal:** Das Wochenziel ist prüfbar formuliert, und «schwieriger als gedacht» deckt sich mit dem, was die Reviews gezeigt haben. Gute Selbsteinschätzung.
+
+**Eine Korrektur, die das Bestehen nicht blockiert:** Im letzten Abschnitt von `einordnung.md` steht noch «Stockfish ist kein KI-basierter Dienst». In deiner Tabelle hast du es richtig («kein Sprachmodell»). Passe den Satz bei Gelegenheit an.
+
+**Was du aus Modul 1.1 mitnimmst:**
+- Die Stufe eines Systems ergibt sich aus der Frage, **wer den nächsten Schritt bestimmt**: der Code (Workflow) oder das Modell (Agent).
+- LLM ist der Baustein, Workflow und Agent sind zwei Bauweisen damit.
+- Freigaben durch Menschen sind nur so gut wie die Aufmerksamkeit des Menschen (Automation Bias). Selbstbewertung durch das Modell ist kein Ersatz (ChemCrow).
+
+**Für Modul 1.2:** Lies die Aufgaben genauer gegen die Abnahmekriterien, bevor du abgibst. Viele Nachträge hier betrafen Punkte, die im Aufgabenblatt standen. Eine kurze Selbstprüfung vor dem «bitte prüfen» spart dir Runden.
+
+**Nächster Schritt:** Auf der Plattform alle fünf Aufgaben abhaken und «Modul abschliessen» klicken. Danach «Modul 1.2 starten» schreiben.
