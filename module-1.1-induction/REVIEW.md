@@ -290,3 +290,11 @@ Schreib «Modul 1.1 abgeben». Sind die Punkte erfüllt, gebe ich das Modul frei
 - [ ] **Einordnung:** der Stockfish-Satz (siehe oben)
 
 Sind diese vier Punkte erledigt, ist Modul 1.1 bestanden. Ich prüfe beim nächsten «Modul 1.1 abgeben» nur noch diese vier Punkte.
+
+## Dritter Durchgang – 1. November, 22:05 (Stand `6df871c`)
+
+- ✓ **Feynman angenommen.** Der Einleitungsabsatz ist weg, «Workflows *nutzen* LLMs» ist richtig. Zusammen mit dem Alltagsvergleich erfüllt die Notiz ihren Zweck.
+- [ ] **Journal:** `journal/2026-43.md` ist noch leer. Auf der Plattform unter Modul 1.1 → Aufgabe 5 → «2026-43.md» → «Bearbeiten».
+- [ ] **Einordnung:** Der Stockfish-Satz «kein KI-basierter Dienst» steht noch unverändert drin.
+
+Danach ist Modul 1.1 bestanden.
