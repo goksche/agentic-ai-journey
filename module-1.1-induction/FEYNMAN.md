@@ -7,7 +7,8 @@ Ein KI Agent ist ein LLM mit Anbinung an Tools. Der Agent kann im Vergleich zu L
 
 
 ## Ein Vergleich aus dem Alltag
-
+Chatbots sind keine Agents, im Alltag werden Chatbots meist als Agents verkauft.
+Cursor oder Claude Desktop sind Agents, die anhand Eingaben Ziele definieren und ihre Ziele erreichen. Die Entscheidungen zum Ziel machen Agenten selbst.
 
 
 ## Was ein Agent nicht ist
