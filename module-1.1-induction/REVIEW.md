@@ -5,11 +5,11 @@ Stand: 22. Oktober 2026, geprüft: Commits bis `5e4b32b`. Das ist ein Zwischenre
 | Aufgabe | Stand | Urteil |
 | --- | --- | --- |
 | 1 – Umgebung | erledigt | angenommen |
-| 2 – Quellen | Anthropic fertig, Weng offen | nachbessern |
-| 3 – Einordnung | vollständig | 3 Einordnungen korrigieren, sonst gut |
+| 2 – Quellen | vollständig (`6b91776`) | **angenommen** am 1.11. |
+| 3 – Einordnung | korrigiert (`357f957`) | **angenommen** am 1.11., ein Satz offen |
 | 4 – Positionspapier | überarbeitet (`812f3c1`) | **angenommen** am 22.10., zwei Formsachen offen |
 | 5 – Feynman, Journal | nicht begonnen | offen |
-| Quiz | für mich nicht sichtbar | Ergebnis bitte im Chat nennen |
+| Quiz | 12 von 15 | **bestanden** |
 
 Was insgesamt auffällt: Du denkst über die Vorgaben hinaus (Betriebsblindheit bei Freigaben, «braucht es dafür überhaupt KI?»). Genau diese kritische Haltung macht später gute Agentensysteme aus. Schwächer ist bisher die **saubere Anwendung der drei Einordnungsfragen**. Darauf liegt der Fokus der Korrekturen.
 
@@ -272,3 +272,21 @@ Die Notiz hat ihren Hauptzweck erfüllt: Sie hat deine Lücke (Wortwahl LLM, Wor
 ## Danach
 
 Schreib «Modul 1.1 abgeben». Sind die Punkte erfüllt, gebe ich das Modul frei. Dann hakst du alle Aufgaben auf der Plattform ab und schliesst das Modul dort ab.
+
+## Abschlussprüfung, zweiter Durchgang – 1. November, 22:00 (Stand `534bd93`)
+
+**Angenommen:**
+
+- **Aufgabe 2:** Die drei Kernaussagen zu Weng sind treffend und in eigenen Worten. Der Widerspruch ist stark: Das ChemCrow-Beispiel im Artikel zeigt, dass ein LLM die Qualität seiner eigenen Ergebnisse falsch einschätzen kann. Menschliche Fachleute bewerteten die Resultate deutlich anders als die Bewertung durch ein Modell. Deine Frage «Wie viel Entscheidungsfreiheit darf ein Agent haben, der seine Fehler nicht erkennt?» ist eine der Kernfragen des ganzen Studiums. Sie kommt in Modul 3.1 (Evaluation) wieder.
+- **Aufgabe 3:** Nr. 7, 9, 10 und 11 sind richtig korrigiert. *Ein Satz bleibt falsch:* «Stockfish ist kein KI-basierter Dienst» im letzten Abschnitt. Ersetzen durch z. B. «Stockfish ist KI, aber kein Sprachmodell», passend zu deiner Tabelle. Dafür ist kein erneutes Review nötig.
+- **Quiz:** 12 von 15, bestanden. Geh die drei falschen Fragen über «Falsche Fragen wiederholen» noch einmal durch.
+- **Feynman, Alltagsvergleich:** Projektleiter gegenüber Mitarbeiter mit genauen Vorgaben trifft den Unterschied genau. Ziel statt Schrittliste, und wer entscheidet den Weg. Sehr gut.
+
+**Noch offen für den Abschluss**, alles klein, zusammen etwa 15 Minuten:
+
+- [ ] **Feynman:** Einleitungsabsatz löschen. Er steht weiterhin drin, mit den drei Ungenauigkeiten.
+- [ ] **Feynman:** «Was ein Agent nicht ist» korrigieren. Unverändert steht dort «Workflows *sind* LLMs mit … Entscheidungsfindungen». Ein Workflow *nutzt* ein Sprachmodell, der Ablauf ist aber vorher festgelegt. Dazu der Satz zu den Chatbots, die nur antworten und nicht handeln.
+- [ ] **Journal** `journal/2026-43.md`: weiterhin leer. Drei Zeilen genügen.
+- [ ] **Einordnung:** der Stockfish-Satz (siehe oben)
+
+Sind diese vier Punkte erledigt, ist Modul 1.1 bestanden. Ich prüfe beim nächsten «Modul 1.1 abgeben» nur noch diese vier Punkte.
