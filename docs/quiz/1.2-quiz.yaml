@@ -1,0 +1,154 @@
+# Quiz 1.2 – wird auf der Lernplattform interaktiv abgefragt.
+# answer = Index der richtigen Option (0 = erste). Die Plattform mischt die Reihenfolge der Optionen.
+title: "Quiz 1.2 – Python für Agenten"
+pass: 12
+questions:
+  - id: q1
+    prompt: "Eine Funktion hat die Typangabe `def f(x: int) -> int`. Was passiert, wenn du `f(\"abc\")` aufrufst?"
+    options:
+      - "Python bricht vor der Ausführung mit einem Typfehler ab."
+      - "Python wandelt \"abc\" automatisch in eine Zahl um."
+      - "Python prüft die Typangabe nicht. Die Funktion läuft und scheitert höchstens an einer Operation im Inneren."
+      - "Der Aufruf wird stillschweigend übersprungen."
+    answer: 2
+    explanation: "Typangaben sind Dokumentation. Geprüft werden sie erst durch Pydantic zur Laufzeit oder einen Type-Checker vor der Ausführung (Skript, Abschnitt 2)."
+
+  - id: q2
+    prompt: "Was bedeutet die Typangabe `str | None`?"
+    options:
+      - "Ein Text, der leer sein muss."
+      - "Ein Text oder gar kein Wert."
+      - "Eine Liste aus Texten und None-Werten."
+      - "Ein Text, der in None umgewandelt wird."
+    answer: 1
+    explanation: "Der senkrechte Strich heisst «oder». Früher schrieb man dafür `Optional[str]`."
+
+  - id: q3
+    prompt: "Ein Pydantic-Modell hat das Feld `status: int`. Was passiert bei `Model(status=\"200\")`?"
+    options:
+      - "ValidationError, weil ein Text kein int ist."
+      - "Das Feld enthält danach den Text \"200\"."
+      - "Pydantic wandelt den Text in die Zahl 200 um."
+      - "Das Feld wird auf 0 gesetzt."
+    answer: 2
+    explanation: "Pydantic wandelt passende Werte um (im Skript: `r.status + 1` ergibt 201). Erst wenn das nicht geht, gibt es einen ValidationError."
+
+  - id: q4
+    prompt: "Warum ist `Model.model_json_schema()` für Agenten besonders wichtig?"
+    options:
+      - "Es macht das Modell schneller."
+      - "Es liefert das JSON-Schema, mit dem man dem Sprachmodell ein Tool beschreibt. Dieselbe Klasse prüft danach die Antwort."
+      - "Es speichert das Modell in einer Datenbank."
+      - "Es übersetzt Python-Code in JavaScript."
+    answer: 1
+    explanation: "Beim Tool Calling werden Werkzeuge per JSON-Schema beschrieben. Pydantic liefert das Schema aus der Klasse und prüft die Antwort des Modells (Abschnitt 3)."
+
+  - id: q5
+    prompt: "Ein KI-Assistent schlägt `entry.dict()` und `LogEntry.parse_obj(data)` vor. Was ist davon zu halten?"
+    options:
+      - "Korrekt, das sind die empfohlenen Methoden."
+      - "Das sind die alten Namen aus Pydantic Version 1. In Version 2 heissen sie `model_dump()` und `model_validate()`."
+      - "Das sind Methoden der Standardbibliothek, nicht von Pydantic."
+      - "Die Methoden gibt es nur für dataclasses."
+    answer: 1
+    explanation: "Ein typischer Fehler von KI-Code: veraltete API. Der Migration Guide hat die Tabelle der neuen Namen (Abschnitte 8 und 9)."
+
+  - id: q6
+    prompt: "Wann reicht eine `@dataclass`, und wann nimmst du Pydantic?"
+    options:
+      - "dataclass für Daten von aussen, Pydantic für interne Strukturen."
+      - "dataclass für interne Strukturen ohne Prüfung, Pydantic sobald Daten von aussen kommen."
+      - "Beide prüfen Typen gleich, es ist Geschmackssache."
+      - "dataclass ist veraltet und sollte nicht mehr verwendet werden."
+    answer: 1
+    explanation: "Eine dataclass ist ein Datenbehälter ohne Prüfung. Daten aus Dateien, APIs oder vom Sprachmodell werden mit Pydantic geprüft."
+
+  - id: q7
+    prompt: "Warum öffnest du Dateien mit `with path.open(encoding=\"utf-8\") as f:`? Wähle die vollständigste Antwort."
+    options:
+      - "`with` macht das Lesen schneller."
+      - "`with` schliesst die Datei auch bei einem Fehler, und ohne Kodierungsangabe gehen unter Windows Umlaute kaputt."
+      - "`encoding` ist nur für Binärdateien nötig."
+      - "Ohne `with` kann Python keine Dateien öffnen."
+    answer: 1
+    explanation: "Abschnitt 4: Kontextmanager räumen sicher auf, und Windows nutzt sonst eine andere voreingestellte Kodierung."
+
+  - id: q8
+    prompt: "Welchen Vorteil hat `logging` gegenüber `print`?"
+    options:
+      - "Die Menge der Meldungen lässt sich über die Stufe steuern, ohne den Code zu ändern."
+      - "logging ist schneller als print."
+      - "logging schreibt automatisch in eine Datenbank."
+      - "print funktioniert in Paketen nicht."
+    answer: 0
+    explanation: "Mit Stufen wie INFO und WARNING bestimmt die Konfiguration, was erscheint. Bei Agenten macht das jede Entscheidung nachvollziehbar."
+
+  - id: q9
+    prompt: "Du willst prüfen, dass `parse_line(\"kaputt\")` einen `ParseError` auslöst. Welches Werkzeug nimmst du?"
+    options:
+      - "`assert parse_line(\"kaputt\") == ParseError`"
+      - "`with pytest.raises(ParseError): parse_line(\"kaputt\")`"
+      - "`try: parse_line(\"kaputt\") except: pass`"
+      - "`@pytest.mark.parametrize(ParseError)`"
+    answer: 1
+    explanation: "`pytest.raises` prüft, dass der Fehler kommt. Der Test schlägt fehl, wenn keiner kommt."
+
+  - id: q10
+    prompt: "Wofür ist der pytest-Parameter `tmp_path` gedacht?"
+    options:
+      - "Er liefert den Pfad zum Projektordner."
+      - "Er liefert einen leeren Ordner nur für diesen Test, etwa um eine Testdatei zu schreiben."
+      - "Er speichert Testergebnisse zwischen."
+      - "Er löscht nach dem Test alle Dateien im Repo."
+    answer: 1
+    explanation: "So schreibst du Testdateien, ohne das Repo zu verschmutzen (Abschnitt 5)."
+
+  - id: q11
+    prompt: "Warum nimmt `main` in loglens die Argumente als Liste (`main(argv)`) und gibt eine Zahl zurück?"
+    options:
+      - "Weil argparse das so verlangt."
+      - "Damit Tests `main([...])` direkt aufrufen und den Exit-Code prüfen können, ohne Kommandozeile und ohne dass das Programm den Testlauf beendet."
+      - "Damit das Programm schneller startet."
+      - "Weil `__main__.py` sonst nicht gefunden wird."
+    answer: 1
+    explanation: "Beide Muster machen das Werkzeug testbar. `__main__.py` übersetzt den Rückgabewert mit `raise SystemExit(main())` in den Exit-Code."
+
+  - id: q12
+    prompt: "Was bewirkt `await` in einer Coroutine?"
+    options:
+      - "Es startet einen neuen Prozess."
+      - "Es wartet auf ein Ergebnis und lässt in der Zwischenzeit andere Coroutinen weiterlaufen."
+      - "Es blockiert das ganze Programm, bis die Antwort da ist."
+      - "Es wiederholt den Aufruf bei einem Fehler."
+    answer: 1
+    explanation: "Während eine Netzwerkanfrage wartet, übernimmt die Ereignisschleife andere Arbeit. Deshalb lohnt sich async bei vielen Netzwerkaufrufen."
+
+  - id: q13
+    prompt: "20 Anfragen dauern je etwa 0,5 Sekunden. Sie laufen mit `asyncio.gather` und `Semaphore(5)`. Welche Gesamtdauer ist ungefähr zu erwarten?"
+    options:
+      - "ca. 0,5 Sekunden"
+      - "ca. 2 Sekunden"
+      - "ca. 10 Sekunden"
+      - "ca. 50 Sekunden"
+    answer: 1
+    explanation: "Höchstens 5 laufen gleichzeitig, also 4 «Runden» à 0,5 Sekunden. Ohne Semaphore wären es ca. 0,5 Sekunden, nacheinander ca. 10 Sekunden."
+
+  - id: q14
+    prompt: "Was passiert bei `asyncio.gather(...)` ohne `return_exceptions=True`, wenn eine der Coroutinen eine Ausnahme wirft?"
+    options:
+      - "Die Ausnahme wird ignoriert, alle anderen Ergebnisse kommen zurück."
+      - "Die Ausnahme wird an die Stelle von `await gather(...)` weitergereicht, die Ergebnisse der anderen bekommst du dort nicht."
+      - "gather wiederholt die fehlerhafte Coroutine automatisch."
+      - "Python beendet sofort das ganze Programm ohne Meldung."
+    answer: 1
+    explanation: "Mit `return_exceptions=True` kommen Fehler als Ergebnis zurück. Für Agenten ist das wichtig: ein ausgefallenes Tool darf nicht die ganze Aufgabe abbrechen (Abschnitt 7)."
+
+  - id: q15
+    prompt: "Du lässt den Cursor-Agenten Code schreiben. Was verbessert das Ergebnis laut Skript am meisten?"
+    options:
+      - "Den Auftrag möglichst kurz halten, damit der Agent frei arbeiten kann."
+      - "Anforderungen, vorhandene Tests und Abnahmekriterien mitgeben und verlangen, dass er die Tests ausführt, bevor er «fertig» meldet."
+      - "Das grösste verfügbare Modell auswählen."
+      - "Den Agenten bitten, besonders sorgfältig zu sein."
+    answer: 1
+    explanation: "Tests sind die objektive Rückmeldung, mit der ein Agent seine eigenen Fehler erkennt. Das ist das Prinzip aus Skript 1.1, angewendet auf Coding-Agenten (Abschnitt 8)."

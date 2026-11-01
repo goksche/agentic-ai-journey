@@ -31,9 +31,10 @@ semesters:
         aufgaben: module-1.2-python/AUFGABEN.md
         quiz: docs/quiz/1.2-quiz.yaml
         tasks:
-          - { id: "1.2-a1", title: "CLI «loglens» mit Pydantic und Tests" }
-          - { id: "1.2-a2", title: "Dieselbe Aufgabe mit dem Cursor-Agenten lösen und vergleichen" }
-          - { id: "1.2-a3", title: "Async-Übung: 20 parallele API-Abrufe mit Rate-Limiting" }
+          - { id: "1.2-a1", title: "CLI «loglens» mit Pydantic und Tests", hours: 4.5, files: [module-1.2-python/loglens/parser.py, module-1.2-python/loglens/summary.py, module-1.2-python/loglens/cli.py, module-1.2-python/tests/test_eigene.py] }
+          - { id: "1.2-a2", title: "Dieselbe Aufgabe mit dem Cursor-Agenten lösen und vergleichen", hours: 2, files: [module-1.2-python/vergleich.md] }
+          - { id: "1.2-a3", title: "Async-Übung: 20 parallele API-Abrufe mit Rate-Limiting", hours: 3.5, files: [module-1.2-python/wikifetch/wikifetch.py] }
+          - { id: "1.2-a4", title: "Feynman-Notiz und Wochenjournal", hours: 1, files: [module-1.2-python/FEYNMAN.md, journal/2026-45.md] }
       - id: "1.3"
         title: "Foundations of AI & Agentic AI"
         weeks: "4–5"
